@@ -1,0 +1,27 @@
+\name{df_names}
+\alias{df_names}
+\title{Pull dataframe names that match a specific pattern}
+\usage{
+  df_names(pattern, df)
+}
+\arguments{
+  \item{df}{input dataframe}
+
+  \item{pattern}{input string}
+}
+\value{
+  string name vector
+}
+\description{
+  Pull dataframe names that match a specific pattern
+}
+\examples{
+temp<-data.frame(var_1=seq(1:10),var2=seq(1:10),v2=seq(1:10))
+df_names("_",temp)
+}
+\seealso{
+  \code{\link{nchar}} which this function wraps
+}
+\keyword{alpha}
+\keyword{color}
+
