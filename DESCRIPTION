@@ -17,3 +17,4 @@ Collate:
     'logn_ptile_balance.R'
     'ptable.R'
     'mvfrontier.R'
+    'ac_cols.R'

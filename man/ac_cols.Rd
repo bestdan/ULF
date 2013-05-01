@@ -1,0 +1,36 @@
+\name{ac_cols}
+\alias{ac_cols}
+\title{Function to generate colors for a given set of cash, bonds & stocks.}
+\usage{
+  ac_cols(ncash, nbond, neqs)
+}
+\arguments{
+  \item{ncash}{The number of different cash options}
+
+  \item{nbond}{The number of differen bond options}
+
+  \item{nbond}{The number of differen equity options}
+}
+\value{
+  A vector of colors to use
+}
+\description{
+  Function to generate colors for a given set of cash,
+  bonds & stocks.
+}
+\examples{
+this.colors<-ac_cols(1,4,6)
+barplot(seq(1,length(this.colors)),col=this.colors)
+}
+\seealso{
+  nothing
+}
+\keyword{asset}
+\keyword{classes}
+\keyword{colors,}
+\keyword{finance,}
+\keyword{functions,}
+\keyword{little}
+\keyword{portfolio,}
+\keyword{useful}
+
