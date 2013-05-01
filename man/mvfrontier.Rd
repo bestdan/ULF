@@ -1,0 +1,63 @@
+\name{mvfrontier}
+\alias{mvfrontier}
+\title{Function for calcualting Mean Variance frontier}
+\usage{
+  mvfrontier(risk_levels, aaf, retvec, covmat,
+    periods = 12, maxcashpar)
+}
+\arguments{
+  \item{risk_levels}{A vector of numeric risk levels, from
+  0 to 1, to calculate optimal portfolios from}
+
+  \item{aaf}{The asset allocation function, based on
+  risk_levels, to calculate proportions of assets.}
+
+  \item{retvec}{A vector of expected returns}
+
+  \item{covmat}{The covariance matrix}
+
+  \item{periods}{Number of periods, per year, the data
+  represents. I.e. monthly=12.}
+
+  \item{maxcashpar}{At what risk level does the portfolio
+  have zero cash?}
+}
+\value{
+  A summary matrix of expected return, portfolio
+  volatility, and var5/10/15 for each portfolio
+}
+\description{
+  Function for calcualting Mean Variance frontier
+}
+\section{Note}{
+  This is really only useful in specific cases where you
+  can specify the asset allocation by risk level ahead of
+  time.
+}
+\examples{
+risk_leveks<-seq(0.4,0.6,0.1) #Risk Levels
+maxpar<- -1/length(risk_levels)  #This defines the slope in graph below for linear stocks
+aaf_v1<-function(risk){
+  eq_alloc<-c(0.25,0.25,0.08,0.07,0.25,0.1)
+  bnd_alloc<-c(0.5,0.5)
+  this.risky_alloc<- eq_alloc*risk
+  safe_wt<- (1-risk) #proportion in cash and bonds
+  bnd_wt<-(safe_wt)*bnd_alloc
+  n_aa<-c(bnd_wt,this.risky_alloc)
+  return(n_aa)
+}
+rets<-seq(2,12,length.out=8)
+vols<-rets*2.25
+cormat<-diag(1,8)
+covmat<-vols * cormat * vols
+mvfrontier(risk_levels,aaf="aaf_v1",covmat,periods=1,maxcashpar=maxpar)
+}
+\seealso{
+  nothing
+}
+\keyword{finance,}
+\keyword{functions,}
+\keyword{little}
+\keyword{portfolio}
+\keyword{useful}
+

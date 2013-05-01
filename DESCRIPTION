@@ -11,3 +11,8 @@ Collate:
     'add.alpha.R'
     'fnames.R'
     'trim.R'
+    'dollar.R'
+    'fvSaveInvest.R'
+    'logn_ptile_balance.R'
+    'ptable.R'
+    'mvfrontier.R'

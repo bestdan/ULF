@@ -1,3 +1,8 @@
 export(add.alpha)
 export(df_names)
+export(dollar)
+export(fvSaveInvest)
+export(logn_ptile_balance)
+export(mvfrontier)
+export(ptable)
 export(trim)
