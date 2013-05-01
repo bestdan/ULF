@@ -12,7 +12,7 @@
 #' @seealso nothing
 #' @export
 #' @examples
-#' risk_leveks<-seq(0.4,0.6,0.1) #Risk Levels
+#' risk_levels<-seq(0.4,0.6,0.1) #Risk Levels
 #' maxpar<- -1/length(risk_levels)  #This defines the slope in graph below for linear stocks
 #' aaf_v1<-function(risk){
 #'   eq_alloc<-c(0.25,0.25,0.08,0.07,0.25,0.1)
