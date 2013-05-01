@@ -1,12 +1,13 @@
 Package: ULF
 Type: Package
-Title: What the package does (short line)
+Title: Useful Little Functions
 Version: 1.0
-Date: 2013-01-29
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Date: 2013-05-01
+Author: Daniel P. Egan
+Maintainer: Daniel P. Egan <dp.egan@gmail.com>
+Description: A set of convenience functions for doing analysis & data
+    management in R.
+License: GNU
 Collate:
     'add.alpha.R'
     'fnames.R'
