@@ -17,7 +17,7 @@
 trim("   blah    ")
 }
 \seealso{
-  \code{\link{nchar}} which this function wraps
+  \code{\link{gsub}}
 }
 \keyword{trim}
 

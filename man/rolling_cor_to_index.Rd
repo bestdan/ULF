@@ -1,0 +1,36 @@
+\name{rolling_cor_to_index}
+\alias{rolling_cor_to_index}
+\title{Rolling correlation of a bunch of vars to an index.}
+\usage{
+  rolling_cor_to_index(rets, window)
+}
+\arguments{
+  \item{rets}{Vector of data for the correlation to be
+  calculated over. The first column should be the index.}
+
+  \item{window}{The number of observations for data to be
+  observed over.}
+}
+\value{
+  A matrix of correlations
+}
+\description{
+  Calculates rolling correlations over the specified
+  window, where the first column is the index.
+}
+\examples{
+obs<-20
+rets<-data.frame(a=seq(.7,1.4,length.out=obs),b=runif(obs),c=rnorm(obs))
+rets$y<-sin(rets$a+rets$b)
+rolling_cor_to_index(rets,2)
+these.cors<-cbind(seq(1,obs),rolling_cor_to_index(rets,2))
+plot_lines(these.cors)
+}
+\seealso{
+  Nothing.
+}
+\keyword{annualize,}
+\keyword{convenience}
+\keyword{finance,}
+\keyword{portfolio,}
+

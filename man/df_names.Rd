@@ -13,7 +13,8 @@
   string name vector
 }
 \description{
-  Pull dataframe names that match a specific pattern
+  Grabs all the names in a data frame which match a
+  specific patter.
 }
 \examples{
 temp<-data.frame(var_1=seq(1:10),var2=seq(1:10),v2=seq(1:10))

@@ -1,5 +1,5 @@
 #' Pull dataframe names that match a specific pattern
-#'
+#' @description Grabs all the names in a data frame which match a specific patter. 
 #' @param df input dataframe
 #' @param pattern input string
 #' @return string name vector

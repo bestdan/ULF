@@ -3,7 +3,7 @@
 #' @param x input string
 #' @return string name vector
 #' @keywords trim
-#' @seealso \code{\link{nchar}} which this function wraps
+#' @seealso \code{\link{gsub}} 
 #' @export
 #' @examples
 #' trim("   blah    ")

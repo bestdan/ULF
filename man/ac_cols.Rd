@@ -1,6 +1,6 @@
 \name{ac_cols}
 \alias{ac_cols}
-\title{Function to generate colors for a given set of cash, bonds & stocks.}
+\title{Generate colors for a given set of cash, bonds & stocks.}
 \usage{
   ac_cols(ncash, nbond, neqs)
 }
@@ -15,8 +15,8 @@
   A vector of colors to use
 }
 \description{
-  Function to generate colors for a given set of cash,
-  bonds & stocks.
+  Creates a set of N green, grey, and blue colors for use
+  with N cash, bonds, & stocks.
 }
 \examples{
 this.colors<-ac_cols(1,4,6)

@@ -1,5 +1,5 @@
 #' Automatically add an alpha transparency level to a color. 
-#'
+#' @description Automatically add an alpha transparency level to a color.
 #' @param col input color vector
 #' @param alpha input transparency level (0 - 100)
 #' @return string color vector

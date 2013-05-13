@@ -3,14 +3,13 @@ Type: Package
 Title: Useful Little Functions
 Version: 1.0
 Date: 2013-05-01
-Author: Daniel P. Egan
+Author: Daniel P. Egan <dp.egan@gmail.com>
 Maintainer: Daniel P. Egan <dp.egan@gmail.com>
 Description: A set of convenience functions for doing analysis & data
     management in R.
 License: GNU
 Collate:
     'add.alpha.R'
-    'fnames.R'
     'trim.R'
     'dollar.R'
     'fvSaveInvest.R'
@@ -18,3 +17,12 @@ Collate:
     'ptable.R'
     'mvfrontier.R'
     'ac_cols.R'
+    'matrix.mirror.R'
+    'matrix.rotate180.R'
+    'matrix.flip.R'
+    'annualize.R'
+    'rolling_index_cor.R'
+    'plot_lines.R'
+    'df_names.R'
+    'rolling_return.R'
+    'axis.lim.round.R'
