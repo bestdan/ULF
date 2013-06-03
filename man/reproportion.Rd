@@ -1,0 +1,28 @@
+\name{reproportion}
+\alias{reproportion}
+\title{Weight a vector of numbers to one, i.e. find their percentage within the total}
+\usage{
+  reproportion(x)
+}
+\arguments{
+  \item{x}{Vector to be transformed}
+}
+\value{
+  A vector which sums to 1
+}
+\description{
+  Weight a vector of numbers to one, i.e. find their
+  percentage within the total
+}
+\examples{
+reproportion(seq(0,10))
+reproportion(seq(3,10))
+}
+\seealso{
+  Nothing.
+}
+\keyword{annualize,}
+\keyword{convenience}
+\keyword{finance,}
+\keyword{portfolio,}
+

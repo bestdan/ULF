@@ -11,8 +11,8 @@
   \item{window}{The number of observations for data to be
   observed over.}
 
-  \item{period}{The number of periods per year the return
-  is calculated over daily=365, monthly=12, etc..}
+  \item{ret.period}{The number of periods per year the
+  return is calculated over daily=365, monthly=12, etc..}
 }
 \value{
   A matrix of correlations

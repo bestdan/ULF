@@ -6,6 +6,8 @@
 }
 \arguments{
   \item{mat}{matrix or dataframe of data to plot}
+
+  \item{...}{Further plotting parameters, e.g. col}
 }
 \value{
   A plot

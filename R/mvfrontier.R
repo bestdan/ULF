@@ -12,8 +12,8 @@
 #' @seealso nothing
 #' @export
 #' @examples
-#' risk_levels<-seq(0.4,0.6,0.1) #Risk Levels
-#' maxpar<- -1/length(risk_levels)  #This defines the slope in graph below for linear stocks
+#' risk_levels<-seq(0,1,0.1) #Risk Levels
+#' maxpar<- (-1/length(risk_levels))  #This defines the slope in graph below for linear stocks
 #' aaf_v1<-function(risk){
 #'   eq_alloc<-c(0.25,0.25,0.08,0.07,0.25,0.1)
 #'   bnd_alloc<-c(0.5,0.5)
@@ -27,10 +27,10 @@
 #' vols<-rets*2.25
 #' cormat<-diag(1,8)
 #' covmat<-vols * cormat * vols
-#' mvfrontier(risk_levels,aaf="aaf_v1",covmat,periods=1,maxcashpar=maxpar)
+#' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,periods=1,maxcashpar=maxpar)
 
 
-mvfrontier<-function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
+mvfrontier<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
   # Create summary matrix for outcomes at each risk level. 
   sum_mat<-as.data.frame(matrix(NA,nrow=length(risk_levels),ncol=6))
   names(sum_mat)<-c("risk","ret","vol","var15","var10","var05")
@@ -39,9 +39,9 @@ mvfrontier<-function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
     risk=risk_levels[i]
     sum_mat$risk[i]<- risk
     FUN <- match.fun(aaf) #Find the named asset allocation function 
-    if (aaf=="aaf_v2b") this.aa<-FUN(risk,this.maxcashpar)  
-    if (aaf=="aaf_v2a") this.aa<-FUN(risk,this.maxcashpar)
-    if (aaf=="aaf_v1") this.aa<-FUN(risk)
+      if (aaf=="aaf_v2b") this.aa<-FUN(risk,maxcashpar)  
+      if (aaf=="aaf_v2a") this.aa<-FUN(risk,maxcashpar)
+      if (aaf=="aaf_v1") this.aa<-FUN(risk)
     # Average returns
     this.ret<- sum(this.aa*retvec)
     sum_mat$ret[i]<-  (((this.ret+1)^periods)-1)*100
@@ -56,4 +56,4 @@ mvfrontier<-function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
   }
   return(sum_mat)
 }
-#################################################################################
+
