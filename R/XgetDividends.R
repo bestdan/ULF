@@ -10,7 +10,7 @@
 #' @seealso Nothing. 
 #' @export
 #' @examples
-#' data<-XgetDividends("AGG","2004-01-01")
+#' data<-XgetDividends("AGG","2004-01-01",token="56709B5C32C441D782B558DCCC923CBB")
 #' head(data,20)
 
 XgetDividends<-function(symbol,start_date,end_date=as.character(Sys.Date()),token="NA") {
@@ -23,7 +23,7 @@ XgetDividends<-function(symbol,start_date,end_date=as.character(Sys.Date()),toke
   this.url<-paste0("http://www.xignite.com/xGlobalHistorical.csv/GetCashDividendHistory?Identifier=",symbol,
                    "&IdentifierType=Symbol&StartDate=",start_date,"&EndDate=",end_date,
                    "&_DownloadFile=true&_fields=Dividends.PayDate,Dividends.DividendAmount&_csvflatten=true")
-  if(token!="NA") paste0(this.url,"&_Token=",token)
+  if(token!="NA") this.url<-paste0(this.url,"&_Token=",token)
   print(this.url)
   result<-read.csv(this.url)
   names(result)<-c("Date","Value")

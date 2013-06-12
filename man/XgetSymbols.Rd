@@ -16,9 +16,7 @@
   Defaults to today.}
 
   \item{adjtype}{The type of adjustment, if any, to be
-  made. Potentially}
-
-  \item{token}{Your API Token "None", "SplitOnly",
+  made. Potentially "None", "SplitOnly",
   "CashDividendOnly", "SplitAndProportionalCashDividend",
   "SplitAndCashDividend", "All"}
 
@@ -26,6 +24,8 @@
   are Last, Open, High, Low, Volume, LastClose (the
   default), ChangeFromOpen, PercentChangeFromOpen,
   ChangeFromLastClose, PercentChangeFromLastClose,}
+
+  \item{token}{Your XIgnite API Token}
 }
 \value{
   A dataframe of date and values
@@ -34,7 +34,7 @@
   Get prices & returns from XIgnite API
 }
 \examples{
-data<-XgetSymbols("EEM","2013-01-01",adjtype="SplitOnly")
+data<-XgetSymbols("EEM","2013-01-01",adjtype="SplitOnly",token="56709B5C32C441D782B558DCCC923CBB")
 head(data,20)
 }
 \seealso{

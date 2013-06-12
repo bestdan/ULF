@@ -40,19 +40,17 @@ mvfrontier<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
     sum_mat$risk[i]<- risk
     FUN <- match.fun(aaf) #Find the named asset allocation function 
       if (aaf=="aaf_v2b") this.aa<-FUN(risk,maxcashpar)  
-      if (aaf=="aaf_v2a") this.aa<-FUN(risk,maxcashpar)
+      if (aaf=="aaf_v2a") this.aa<-FUN(risk)
       if (aaf=="aaf_v1") this.aa<-FUN(risk)
     # Average returns
-    this.ret<- sum(this.aa*retvec)
-    sum_mat$ret[i]<-  (((this.ret+1)^periods)-1)*100
+    sum_mat$ret[i]<- sum(this.aa*retvec)
     # Vols
-    this.port.vol<- sqrt(sum(t(this.aa) %*% (covmat) *this.aa))
-    sum_mat$vol[i]<-this.port.vol*sqrt(periods)*100
-    this.port.vol<-sum_mat$vol[i]
-    sum_mat$var15[i]<-  (-1.04*this.port.vol)  + this.ret
-    sum_mat$var10[i]<- (-1.3*this.port.vol) + this.ret #one sided 
-    sum_mat$var05[i]<- (-1.65*this.port.vol) + this.ret #one sided 
-    rm(this.port.vol,this.ret,this.aa)
+    sum_mat$vol[i]<-sqrt(sum(t(this.aa) %*% (covmat) *this.aa))
+    #this.port.vol<-sum_mat$vol[i]
+    ##sum_mat$var15[i]<-  (-1.04*this.port.vol)  + this.ret
+    #sum_mat$var10[i]<- (-1.3*this.port.vol) + this.ret #one sided 
+    #sum_mat$var05[i]<- (-1.65*this.port.vol) + this.ret #one sided 
+    rm(this.aa)
   }
   return(sum_mat)
 }

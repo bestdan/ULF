@@ -4,7 +4,6 @@
 #' @param start_date The beginning of the historical date range
 #' @param end_date The end of the historical date range. Defaults to today. 
 #' @param adjtype The type of adjustment, if any, to be made. Potentially
-#' @param token Your API Token  
 #' "None",
 #' "SplitOnly",
 #' "CashDividendOnly",
@@ -22,13 +21,14 @@
 #' PercentChangeFromOpen,
 #' ChangeFromLastClose,
 #' PercentChangeFromLastClose,
+#' @param token Your XIgnite API Token  
 #' @return A dataframe of date and values
 #' @keywords finance, portfolio, annualize, convenience
 #' @seealso Nothing. 
 #' @export
 #' @import timeSeries
 #' @examples
-#' data<-XgetSymbols("EEM","2013-01-01",adjtype="SplitOnly")
+#' data<-XgetSymbols("EEM","2013-01-01",adjtype="SplitOnly",token="56709B5C32C441D782B558DCCC923CBB")
 #' head(data,20)
 
 XgetSymbols<-function(symbol,start_date,end_date=as.character(Sys.Date()),adjtype,quotetype="LastClose",token="NA") {
@@ -41,8 +41,8 @@ XgetSymbols<-function(symbol,start_date,end_date=as.character(Sys.Date()),adjtyp
   this.url<-paste0("http://www.xignite.com/xGlobalHistorical.csv/GetGlobalHistoricalQuotesRange?Identifier=",symbol,
                    "&IdentifierType=Symbol&AdjustmentMethod=",adjtype,"&StartDate=",start_date,"&EndDate=",end_date,
                    "&_DownloadFile=true&_fields=GlobalQuotes.Date,","GlobalQuotes.",quotetype,"&_csvflatten=true")
-  if(token!="NA") paste0(this.url,"&_Token=",token)
-  #print(this.url)
+  if(token!="NA") this.url<-paste0(this.url,"&_Token=",token)
+  print(this.url)
   result<-read.csv(this.url)
   #result<-subset(result,select=c(-X))
   names(result)<-c("Date","Value")
