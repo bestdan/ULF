@@ -31,6 +31,8 @@ Collate:
     'rescale.R'
     'XgetDividends.R'
     'XgetSymbols.R'
+    'percentize.R'
+    'round2.R'
 Depends:
     fBasics,
     timeSeries
