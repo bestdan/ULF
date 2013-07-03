@@ -12,28 +12,22 @@
 #' @seealso nothing
 #' @export
 #' @examples
-# ' risk_levels<-seq(0,1,0.1) #Risk Levels
-# ' maxpar<- (-1/length(risk_levels))  #This defines the slope in graph below for linear stocks
-# ' aaf_v1<-function(risk){
-# '   eq_alloc<-c(0.25,0.25,0.08,0.07,0.25,0.1)
-# '   bnd_alloc<-c(0.5,0.5)
-# '   this.risky_alloc<- eq_alloc*risk
-# '   safe_wt<- (1-risk) #proportion in cash and bonds
-# '   bnd_wt<-(safe_wt)*bnd_alloc
-# '   n_aa<-c(bnd_wt,this.risky_alloc)
-# '   return(n_aa)
-# ' }
-# 'aaf_v1_simple<-function(aa) {
-# '  aa<- aaf_v1(.5)
-# '  n_aa<- c(aa["tip"],aa["shy"],sum(aa[c("vti","iws","iwn")]),aa["efa"],aa["eem"] )
-# '  names(n_aa)<-c("tip","shy","vti","efa","eem")
-# '  return(n_aa)
-# ' }
-# ' rets<-seq(2,12,length.out=8)
-# ' vols<-rets*2.25
-# ' cormat<-diag(1,8)
-# ' covmat<-vols * cormat * vols
-# ' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,periods=1,maxcashpar=maxpar)
+#' risk_levels<-seq(0,1,0.1) #Risk Levels
+#' maxpar<- (-1/length(risk_levels))  #This defines the slope in graph below for linear stocks
+#' aaf_v1<-function(risk){
+#'   eq_alloc<-c(0.25,0.25,0.08,0.07,0.25,0.1)
+#'   bnd_alloc<-c(0.5,0.5)
+#'   this.risky_alloc<- eq_alloc*risk
+#'   safe_wt<- (1-risk) #proportion in cash and bonds
+#'   bnd_wt<-(safe_wt)*bnd_alloc
+#'   n_aa<-c(bnd_wt,this.risky_alloc)
+#'   return(n_aa)
+#' }
+#' rets<-seq(2,12,length.out=8)
+#' vols<-rets*2.25
+#' cormat<-diag(1,8)
+#' covmat<-vols * cormat * vols
+#' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,periods=1,maxcashpar=maxpar)
 
 
 mvfrontier<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
