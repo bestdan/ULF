@@ -1,3 +1,4 @@
+export(aaf_v1_simple)
 export(ac_cols)
 export(add.alpha)
 export(annualize)

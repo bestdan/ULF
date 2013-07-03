@@ -33,6 +33,7 @@ Collate:
     'XgetSymbols.R'
     'percentize.R'
     'round2.R'
+    'aaf_v1_simple.R'
 Depends:
     fBasics,
     timeSeries
