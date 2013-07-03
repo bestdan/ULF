@@ -36,7 +36,7 @@
 # ' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,periods=1,maxcashpar=maxpar)
 
 
-mvfrontier2<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
+mvfrontier<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
   # Create summary matrix for outcomes at each risk level. 
   sum_mat<-as.data.frame(matrix(NA,nrow=length(risk_levels),ncol=6))
   names(sum_mat)<-c("risk","ret","vol","var15","var10","var05")
