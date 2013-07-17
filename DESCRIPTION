@@ -33,7 +33,8 @@ Collate:
     'XgetSymbols.R'
     'percentize.R'
     'round2.R'
-    'aaf_v1_simple.R'
+    'logn_ptile_balance_varret.R'
+    'RFRYieldCurveUpdate.R'
 Depends:
     fBasics,
     timeSeries

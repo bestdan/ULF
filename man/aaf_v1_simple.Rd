@@ -15,6 +15,7 @@
   Get simple (VTI for domestics) weights from AAF_V1
 }
 \examples{
+library(ULF)
 aaf_v1_simple(.5)
 }
 \seealso{
