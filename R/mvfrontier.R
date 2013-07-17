@@ -47,6 +47,7 @@ mvfrontier<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
       if (aaf=="aaf_v2d") this.aa<-FUN(risk,maxcashpar)  
       if (aaf=="aaf_v3") this.aa<-FUN(risk,maxcashpar)  
       if (aaf=="aaf_v3b") this.aa<-FUN(risk,maxcashpar)  
+      if (aaf=="aaf_bm") this.aa<-FUN(risk)  
     # Average returns
     sum_mat$ret[i]<- sum(this.aa*retvec)
     # Vols
