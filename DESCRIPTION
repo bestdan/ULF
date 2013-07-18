@@ -33,8 +33,9 @@ Collate:
     'XgetSymbols.R'
     'percentize.R'
     'round2.R'
-    'logn_ptile_balance_varret.R'
     'RFRYieldCurveUpdate.R'
+    'bl.compute.eqret.R'
+    'bl.compute.riskaversion.R'
 Depends:
     fBasics,
     timeSeries

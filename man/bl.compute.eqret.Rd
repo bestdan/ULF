@@ -1,0 +1,38 @@
+\name{bl.compute.eqret}
+\alias{bl.compute.eqret}
+\title{Calculates the Black-Litterman Equilibrium Returns}
+\usage{
+  bl.compute.eqret(risk.aversion, cov, cap.weight,
+    risk.free = 0)
+}
+\arguments{
+  \item{risk.aversion}{The numeric estimate of risk
+  aversion.}
+
+  \item{cov}{The covariance matrix of the assets.}
+
+  \item{cap.weight}{The global portfolio allocation across
+  assets. Must sum to 1.}
+
+  \item{risk.free}{The forward-looking risk-free rate of
+  return.}
+}
+\value{
+  risk.aversion The numeric estimate of risk aversion
+}
+\description{
+  Calculates the Black-Litterman Equilibrium Returns
+}
+\examples{
+this.cov<-matrix(runif(9),ncol=3)
+diag(this.cov)<- 1
+this.cov[upper.tri(this.cov)]<- this.cov[lower.tri(this.cov)]
+bl.compute.eqret(3, this.cov, c(.3,.3,.4), 1)
+}
+\seealso{
+  nothing
+}
+\keyword{economics}
+\keyword{finance}
+\keyword{forecasting}
+
