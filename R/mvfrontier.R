@@ -30,7 +30,7 @@
 #' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,periods=1,maxcashpar=maxpar)
 
 
-mvfrontier<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
+mvfrontier<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar,cashsplit) {
   # Create summary matrix for outcomes at each risk level. 
   sum_mat<-as.data.frame(matrix(NA,nrow=length(risk_levels),ncol=6))
   names(sum_mat)<-c("risk","ret","vol","var15","var10","var05")
@@ -47,6 +47,7 @@ mvfrontier<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
       if (aaf=="aaf_v2d") this.aa<-FUN(risk,maxcashpar)  
       if (aaf=="aaf_v3") this.aa<-FUN(risk,maxcashpar)  
       if (aaf=="aaf_v3b") this.aa<-FUN(risk,maxcashpar)  
+      if (aaf=="aaf_v3b") this.aa<-FUN(risk,maxcashpar,cashsplit)  
       if (aaf=="aaf_bm") this.aa<-FUN(risk)
       if (aaf=="aaf_bm_dom") this.aa<-FUN(risk)
     
