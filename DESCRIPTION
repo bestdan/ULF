@@ -36,6 +36,7 @@ Collate:
     'RFRYieldCurveUpdate.R'
     'bl.compute.eqret.R'
     'bl.compute.riskaversion.R'
+    'mvstats.R'
 Depends:
     fBasics,
     timeSeries

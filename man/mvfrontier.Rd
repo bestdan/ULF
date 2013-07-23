@@ -2,8 +2,8 @@
 \alias{mvfrontier}
 \title{Function for calcualting Mean Variance frontier}
 \usage{
-  mvfrontier(risk_levels, aaf, retvec, covmat,
-    periods = 12, maxcashpar)
+  mvfrontier(risk_levels, aaf, retvec, covmat, maxcashpar,
+    cashsplit)
 }
 \arguments{
   \item{risk_levels}{A vector of numeric risk levels, from
@@ -16,11 +16,11 @@
 
   \item{covmat}{The covariance matrix}
 
-  \item{periods}{Number of periods, per year, the data
-  represents. I.e. monthly=12.}
-
   \item{maxcashpar}{At what risk level does the portfolio
   have zero cash?}
+
+  \item{cashsplit}{What proportion of 'cash' is allocated
+  to VTIP?}
 }
 \value{
   A summary matrix of expected return, portfolio
@@ -50,7 +50,7 @@ rets<-seq(2,12,length.out=8)
 vols<-rets*2.25
 cormat<-diag(1,8)
 covmat<-vols * cormat * vols
-mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,periods=1,maxcashpar=maxpar)
+mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,maxcashpar=maxpar)
 }
 \seealso{
   nothing

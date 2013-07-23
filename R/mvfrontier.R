@@ -5,8 +5,8 @@
 #' @param aaf The asset allocation function, based on risk_levels, to calculate proportions of assets. 
 #' @param retvec A vector of expected returns
 #' @param covmat The covariance matrix
-#' @param periods Number of periods, per year, the data represents. I.e. monthly=12. 
 #' @param maxcashpar At what risk level does the portfolio have zero cash? 
+#' @param cashsplit What proportion of 'cash' is allocated to VTIP?
 #' @return A summary matrix of expected return, portfolio volatility, and var5/10/15 for each portfolio
 #' @keywords useful little functions, finance, portfolio
 #' @seealso nothing
@@ -27,10 +27,10 @@
 #' vols<-rets*2.25
 #' cormat<-diag(1,8)
 #' covmat<-vols * cormat * vols
-#' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,periods=1,maxcashpar=maxpar)
+#' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,maxcashpar=maxpar)
 
 
-mvfrontier<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar,cashsplit) {
+mvfrontier<- function(risk_levels,aaf,retvec,covmat,maxcashpar,cashsplit) {
   # Create summary matrix for outcomes at each risk level. 
   sum_mat<-as.data.frame(matrix(NA,nrow=length(risk_levels),ncol=6))
   names(sum_mat)<-c("risk","ret","vol","var15","var10","var05")
@@ -49,16 +49,7 @@ mvfrontier<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar,cashsp
       if (aaf=="aaf_v3b") this.aa<-FUN(risk,maxcashpar=maxcashpar,cashsplit=cashsplit)  
       if (aaf=="aaf_bm") this.aa<-FUN(risk)
       if (aaf=="aaf_bm_dom") this.aa<-FUN(risk)
-    
-    # Average returns
-    sum_mat$ret[i]<- sum(this.aa*retvec)
-    # Vols
-    sum_mat$vol[i]<-sqrt(sum(t(this.aa) %*% (covmat) *this.aa))
-    #this.port.vol<-sum_mat$vol[i]
-    ##sum_mat$var15[i]<-  (-1.04*this.port.vol)  + this.ret
-    #sum_mat$var10[i]<- (-1.3*this.port.vol) + this.ret #one sided 
-    #sum_mat$var05[i]<- (-1.65*this.port.vol) + this.ret #one sided 
-    rm(this.aa)
+    sum_mat[i,]<-mvstats(this.aa,retvec,covmat)
   }
   return(sum_mat)
 }
