@@ -2,7 +2,7 @@
 #' @description Calculates rolling geometric average returns over the specified window. Note, this is not straight cumulative, but average cumulative. 
 #' @param rets Vector of returns for the form 1.05 for a 5 percent return. 
 #' @param window The number of observations for data to be observed over. 
-#' @param period The number of periods per year the return is calculated over daily=365, monthly=12, etc..
+#' @param ret.period The number of periods per year the return is calculated over daily=365, monthly=12, etc..
 #' @return A matrix of correlations
 #' @keywords finance, portfolio, annualize, convenience
 #' @seealso Nothing. 

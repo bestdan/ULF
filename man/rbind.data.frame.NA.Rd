@@ -1,0 +1,31 @@
+\name{rbind.data.frame.NA}
+\alias{rbind.data.frame.NA}
+\title{Binds rows/columns of dataframes which do not have perfectly overlapping row/column names/sizes.}
+\usage{
+  rbind.data.frame.NA(...)
+}
+\arguments{
+  \item{...}{A set of data frames to be combined}
+}
+\value{
+  A dataframe
+}
+\description{
+  Binds rows/columns of dataframes which do not have
+  perfectly overlapping row/column names/sizes.
+}
+\examples{
+obs<-20
+dfx<- data.frame(a=seq(.7,1.4,length.out=obs),b=runif(obs),c=rnorm(obs))
+dfy<- data.frame(x=seq(.7,1.4,length.out=obs),y=runif(obs),z=rnorm(obs))
+dfz<- rbind.data.frame.NA(dfx,dfy)
+dfz
+}
+\seealso{
+  Nothing.
+}
+\keyword{annualize,}
+\keyword{convenience}
+\keyword{finance,}
+\keyword{portfolio,}
+

@@ -1,6 +1,7 @@
 #' Plot all observations as lines against index. The first column is the index. 
 #'
 #' @param mat matrix or dataframe of data to plot
+#' @param ... Further plotting parameters, e.g. col
 #' @return A plot
 #' @keywords finance, portfolio, annualize, convenience
 #' @seealso Nothing. 

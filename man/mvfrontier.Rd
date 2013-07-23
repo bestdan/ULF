@@ -50,7 +50,7 @@ rets<-seq(2,12,length.out=8)
 vols<-rets*2.25
 cormat<-diag(1,8)
 covmat<-vols * cormat * vols
-mvfrontier(risk_levels,aaf="aaf_v1",covmat,periods=1,maxcashpar=maxpar)
+mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,periods=1,maxcashpar=maxpar)
 }
 \seealso{
   nothing

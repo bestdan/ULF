@@ -26,3 +26,11 @@ Collate:
     'df_names.R'
     'rolling_return.R'
     'axis.lim.round.R'
+    'rbind.data.frame.NA.R'
+    'reproportion.R'
+    'rescale.R'
+    'XgetDividends.R'
+    'XgetSymbols.R'
+Depends:
+    fBasics,
+    timeSeries

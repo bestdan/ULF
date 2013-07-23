@@ -9,7 +9,7 @@
 
   \item{nbond}{The number of differen bond options}
 
-  \item{nbond}{The number of differen equity options}
+  \item{neqs}{The number of differen equity options}
 }
 \value{
   A vector of colors to use
@@ -20,6 +20,8 @@
 }
 \examples{
 this.colors<-ac_cols(1,4,6)
+barplot(seq(1,length(this.colors)),col=this.colors)
+this.colors<-ac_cols(0,4,6)
 barplot(seq(1,length(this.colors)),col=this.colors)
 }
 \seealso{
