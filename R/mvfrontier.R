@@ -36,38 +36,25 @@ mvfrontier<- function(risk_levels,aaf,retvec,covmat,maxcashpar,cashsplit) {
   names(sum_mat)<-c("risk","ret","vol")
   row.names(sum_mat)<- paste("r_",risk_levels,sep="")
   for (i in seq_along(risk_levels)) {
-    risk=risk_levels[i]
+    risk<- risk_levels[i]
+    print(risk)
     sum_mat$risk[i]<- risk
     aaf.out<-function(x, type, ...) {
       switch(type,
-      "aaf_v2b"           = aaf_v2b(risk,maxcashpar),
-      "aaf_v2a"           = aaf_v2a(risk),
-      "aaf_v1"            = aaf_v1(risk),
-      "aaf_v1_simple"    = aaf_v1_simple(risk),
-      "aaf_v2c"          = aaf_v2c(risk,maxcashpar)  ,
-      "aaf_v2d"          = aaf_v2d(risk,maxcashpar),  
-      "aaf_v3"           = aaf_v3(risk,maxcashpar) , 
-      "aaf_v3b"          = aaf_v3b(risk,maxcashpar=maxcashpar,cashsplit=cashsplit)  ,
-      "aaf_bm"           = aaf_bm(risk),
-      "aaf_bm_dom"       = aaf_bm_dom(risk))
+      "aaf_v2b"           = aaf_v2b(x,maxcashpar),
+      "aaf_v2a"           = aaf_v2a(x),
+      "aaf_v1"            = aaf_v1(x),
+      "aaf_v1_simple"    = aaf_v1_simple(x),
+      "aaf_v2c"          = aaf_v2c(x,maxcashpar)  ,
+      "aaf_v2d"          = aaf_v2d(x,maxcashpar),  
+      "aaf_v3"           = aaf_v3(x,maxcashpar) , 
+      "aaf_v3b"          = aaf_v3b(x,maxcashpar=maxcashpar,cashsplit=cashsplit)  ,
+      "aaf_bm"           = aaf_bm(x),
+      "aaf_bm_dom"       = aaf_bm_dom(x))
     }
     #this.aa<-aaf.out(i,"aaf_v1")
-    this.aa<-aaf.out(i,aaf)
-    sum_mat[i,]<-mvstats(this.aa,retvec,covmat)
-#     FUN <- match.fun(aaf) #Find the named asset allocation function 
-#       if (aaf=="aaf_v2b") this.aa<-FUN(risk,maxcashpar)  
-#       if (aaf=="aaf_v2a") this.aa<-FUN(risk)
-#       if (aaf=="aaf_v1") this.aa<-FUN(risk)
-#       if (aaf=="aaf_v1_simple") this.aa<-FUN(risk)
-#       if (aaf=="aaf_v2c") this.aa<-FUN(risk,maxcashpar)  
-#       if (aaf=="aaf_v2d") this.aa<-FUN(risk,maxcashpar)  
-#       if (aaf=="aaf_v3") this.aa<-FUN(risk,maxcashpar)  
-#       if (aaf=="aaf_v3b") this.aa<-FUN(risk,maxcashpar=maxcashpar,cashsplit=cashsplit)  
-#       if (aaf=="aaf_bm") this.aa<-FUN(risk)
-#       if (aaf=="aaf_bm_dom") this.aa<-FUN(risk)
-#     sum_mat[i,]<-mvstats(this.aa,retvec,covmat)
-
+    this.aa<- aaf.out(risk, aaf)
+    sum_mat[i,c(2,3)]<- mvstats(this.aa,retvec,covmat)
   }
   return(sum_mat)
 }
-

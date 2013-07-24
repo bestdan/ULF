@@ -25,9 +25,5 @@ mvstats<- function(aa,retvec,covmat) {
     sum_mat$ret<- sum(aa*retvec)
     # Vols
     sum_mat$vol<-sqrt(sum(t(aa) %*% (covmat) *aa))
-    #this.port.vol<-sum_mat$vol[i]
-    ##sum_mat$var15[i]<-  (-1.04*this.port.vol)  + this.ret
-    #sum_mat$var10[i]<- (-1.3*this.port.vol) + this.ret #one sided 
-    #sum_mat$var05[i]<- (-1.65*this.port.vol) + this.ret #one sided 
   return(sum_mat)
 }
