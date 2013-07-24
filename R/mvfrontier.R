@@ -37,7 +37,7 @@ mvfrontier<- function(risk_levels,aaf,retvec,covmat,maxcashpar,cashsplit) {
   row.names(sum_mat)<- paste("r_",risk_levels,sep="")
   for (i in seq_along(risk_levels)) {
     risk<- risk_levels[i]
-    print(risk)
+    #print(risk)
     sum_mat$risk[i]<- risk
     aaf.out<-function(x, type, ...) {
       switch(type,
