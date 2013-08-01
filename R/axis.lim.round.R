@@ -16,7 +16,7 @@
 #' lines(down~seq(1,length(this.seq)),col="red")
 
 axis.lim.round<-function(x,direction="up") {
-  this.10<-10^trunc(log10(x)) #number of digits
+  this.10<-10^(trunc(log10(x))-1) #number of digits
   if (direction=="up") {
     out<- ceiling(x/this.10)*this.10
   } else {
