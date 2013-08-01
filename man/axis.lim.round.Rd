@@ -1,11 +1,14 @@
 \name{axis.lim.round}
 \alias{axis.lim.round}
-\title{Round a number in log space for use in nice axes.}
+\title{Round a number for use in nice axes labels & spacing}
 \usage{
-  axis.lim.round(x)
+  axis.lim.round(x, direction = "up")
 }
 \arguments{
   \item{x}{The number to be "nicified" for axes.}
+
+  \item{direction}{Does the number need to be rounded up
+  (max), or down(min)}
 }
 \value{
   Another number
@@ -15,7 +18,13 @@
   data, and converting to a "nice" round number.
 }
 \examples{
-axis.lim.round(pi^seq(1,10,0.2))
+this.seq<- pi^seq(1,10,0.2)
+up<- axis.lim.round(this.seq, direction="up")
+down<-  axis.lim.round(this.seq, direction="down")
+plot(this.seq~seq(1,length(this.seq)),
+     ylim=c(min(down),max(up)))
+lines(up~seq(1,length(this.seq)),col="green")
+lines(down~seq(1,length(this.seq)),col="red")
 }
 \seealso{
   Nothing.
