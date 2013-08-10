@@ -41,14 +41,9 @@ mvfrontier<- function(risk_levels,aaf,retvec,covmat,maxcashpar,cashsplit) {
     sum_mat$risk[i]<- risk
     aaf.out<-function(x, type, ...) {
       switch(type,
-      "aaf_v2b"           = aaf_v2b(x,maxcashpar),
-      "aaf_v2a"           = aaf_v2a(x),
       "aaf_v1"            = aaf_v1(x),
-      "aaf_v1_simple"    = aaf_v1_simple(x),
-      "aaf_v2c"          = aaf_v2c(x,maxcashpar)  ,
-      "aaf_v2d"          = aaf_v2d(x,maxcashpar),  
-      "aaf_v3"           = aaf_v3(x,maxcashpar) , 
-      "aaf_v3b"          = aaf_v3b(x,maxcashpar=maxcashpar,cashsplit=cashsplit)  ,
+      "aaf_v1_dom"        = aaf_v1_domk(x),
+      "aaf_v2"          = aaf_v3b(x,maxcashpar=maxcashpar,cashsplit=cashsplit)  ,
       "aaf_bm"           = aaf_bm(x),
       "aaf_bm_dom"       = aaf_bm_dom(x))
     }
