@@ -20,7 +20,7 @@ rolling_return<-function(rets,window,ret.period=365){
   for (i in this.len:window) {   #decrement from number of rets to window
     these.rets<-cumprod(rets[(i-window+1):i])
     this.ret<-these.rets[window]  
-    retvec[i]<-this.ret^(period/window)
+    retvec[i]<-this.ret^(ret.period/window)
   }
   return(retvec)
 }
