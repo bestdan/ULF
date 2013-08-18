@@ -1,5 +1,5 @@
 #' Function for calcualting Mean Variance frontier
-#' @section Note: This is really only useful in specific cases where you can specify the asset allocation by risk level ahead of time. 
+#' @note Note: This is really only useful in specific cases where you can specify the asset allocation by risk level ahead of time. Very dependendent upon that coding. 
 #' 
 #' @param risk_levels A vector of numeric risk levels, from 0 to 1, to calculate optimal portfolios from
 #' @param aaf The asset allocation function, based on risk_levels, to calculate proportions of assets. 
@@ -41,9 +41,11 @@ mvfrontier<- function(risk_levels,aaf,retvec,covmat,maxcashpar,cashsplit) {
     sum_mat$risk[i]<- risk
     aaf.out<-function(x, type, ...) {
       switch(type,
-      "aaf_v1"            = aaf_v1(x),
-      "aaf_v1_dom"        = aaf_v1_domk(x),
-      "aaf_v2"          = aaf_v3b(x,maxcashpar=maxcashpar,cashsplit=cashsplit)  ,
+      "aaf_v1"           = aaf_v1(x),
+      "aaf_v1_simple"    = aaf_dom_simple(aaf_v1(x)),
+      "aaf_v1_dom"       = aaf_v1_dom(x),
+      "aaf_v2"           = aaf_v2(x),
+      "aaf_v2_simple"   = aaf_dom_simple(aaf_v2(x,tilt="WORLD")),
       "aaf_bm"           = aaf_bm(x),
       "aaf_bm_dom"       = aaf_bm_dom(x))
     }

@@ -29,10 +29,10 @@
 \description{
   Function for calcualting Mean Variance frontier
 }
-\section{Note}{
-  This is really only useful in specific cases where you
-  can specify the asset allocation by risk level ahead of
-  time.
+\note{
+  Note: This is really only useful in specific cases where
+  you can specify the asset allocation by risk level ahead
+  of time. Very dependendent upon that coding.
 }
 \examples{
 risk_levels<-seq(0,1,0.1) #Risk Levels
