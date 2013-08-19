@@ -5,8 +5,6 @@
 #' @param aaf The asset allocation function, based on risk_levels, to calculate proportions of assets. 
 #' @param retvec A vector of expected returns
 #' @param covmat The covariance matrix
-#' @param maxcashpar At what risk level does the portfolio have zero cash? 
-#' @param cashsplit What proportion of 'cash' is allocated to VTIP?
 #' @return A summary matrix of expected return, portfolio volatility, and var5/10/15 for each portfolio
 #' @keywords useful little functions, finance, portfolio
 #' @seealso nothing
@@ -30,7 +28,7 @@
 #' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,maxcashpar=maxpar)
 
 
-mvfrontier<- function(risk_levels,aaf,retvec,covmat,maxcashpar,cashsplit) {
+mvfrontier<- function(risk_levels,aaf,retvec,covmat,...) {
   # Create summary matrix for outcomes at each risk level. 
   sum_mat<-as.data.frame(matrix(NA,nrow=length(risk_levels),ncol=3))
   names(sum_mat)<-c("risk","ret","vol")
@@ -39,17 +37,22 @@ mvfrontier<- function(risk_levels,aaf,retvec,covmat,maxcashpar,cashsplit) {
     risk<- risk_levels[i]
     #print(risk)
     sum_mat$risk[i]<- risk
-    aaf.out<-function(x, type, ...) {
-      switch(type,
-      "aaf_v1"           = aaf_v1(x),
-      "aaf_v1_simple"    = aaf_dom_simple(aaf_v1(x)),
-      "aaf_v1_dom"       = aaf_v1_dom(x),
-      "aaf_v2"           = aaf_v2(x),
-      "aaf_v2_simple"   = aaf_dom_simple(aaf_v2(x,tilt="WORLD")),
-      "aaf_bm"           = aaf_bm(x),
-      "aaf_bm_dom"       = aaf_bm_dom(x))
+#     aaf.out<-function(x, type, ...) {
+#       switch(type,
+#       "aaf_v1"           = aaf_v1(x),
+#       "aaf_v1_simple"    = aaf_dom_simple(aaf_v1(x)),
+#       "aaf_v1_dom"       = aaf_v1_dom(x),
+#       "aaf_v2"           = aaf_v2(x),
+#       "aaf_v2_simple"   = aaf_dom_simple(aaf_v2(x,tilt="WORLD")),
+#       "aaf_bm"           = aaf_bm(x),
+#       "aaf_bm_dom"       = aaf_bm_dom(x))
+#     }
+    aaf.out<-function(x,func, ...){
+      FUN<- match.fun(func)
+      aa<-FUN(x, ...)
+      return(aa)
     }
-    #this.aa<-aaf.out(i,"aaf_v1")
+    #this.aa<-aaf.out( .5,"aaf_v2",tickers="actual")
     this.aa<- aaf.out(risk, aaf)
     sum_mat[i,c(2,3)]<- mvstats(this.aa,retvec,covmat)
   }

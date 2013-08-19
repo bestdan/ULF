@@ -2,8 +2,7 @@
 \alias{mvfrontier}
 \title{Function for calcualting Mean Variance frontier}
 \usage{
-  mvfrontier(risk_levels, aaf, retvec, covmat, maxcashpar,
-    cashsplit)
+  mvfrontier(risk_levels, aaf, retvec, covmat, ...)
 }
 \arguments{
   \item{risk_levels}{A vector of numeric risk levels, from
@@ -15,12 +14,6 @@
   \item{retvec}{A vector of expected returns}
 
   \item{covmat}{The covariance matrix}
-
-  \item{maxcashpar}{At what risk level does the portfolio
-  have zero cash?}
-
-  \item{cashsplit}{What proportion of 'cash' is allocated
-  to VTIP?}
 }
 \value{
   A summary matrix of expected return, portfolio
