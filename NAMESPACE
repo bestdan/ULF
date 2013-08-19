@@ -1,3 +1,5 @@
+export(XgetDividends)
+export(XgetSymbols)
 export(ac_cols)
 export(add.alpha)
 export(annualize)
