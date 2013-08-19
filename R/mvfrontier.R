@@ -26,7 +26,7 @@
 #' vols<-rets*2.25
 #' cormat<-diag(1,8)
 #' covmat<-vols * cormat * vols
-#' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,maxcashpar=maxpar)
+#' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat)
 
 
 mvfrontier<- function(risk_levels,aaf,retvec,covmat,...) {
@@ -36,7 +36,6 @@ mvfrontier<- function(risk_levels,aaf,retvec,covmat,...) {
   row.names(sum_mat)<- paste("r_",risk_levels,sep="")
   for (i in seq_along(risk_levels)) {
     risk<- risk_levels[i]
-    #print(risk)
     sum_mat$risk[i]<- risk
 #     aaf.out<-function(x, type, ...) {
 #       switch(type,

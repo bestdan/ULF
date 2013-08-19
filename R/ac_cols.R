@@ -1,5 +1,6 @@
 #' Generate colors for a given set of cash, bonds & stocks. 
 #' @description Creates a set of N green, grey, and blue colors for use with N cash, bonds, & stocks. 
+#' @author Daniel P. Egan
 #' @param ncash The number of different cash options
 #' @param nbond The number of differen bond options
 #' @param neqs The number of differen equity options

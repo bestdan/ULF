@@ -1,4 +1,4 @@
-#' #' Get prices & returns from XIgnite API
+#' Get prices & returns from XIgnite API
 #'
 #' @param symbol The symbol to be queries
 #' @param start_date The beginning of the historical date range
@@ -32,10 +32,10 @@
 #' head(data,20)
 
 XgetSymbols<-function(symbol,start_date,end_date=as.character(Sys.Date()),adjtype,quotetype="LastClose",token="NA") {
-  start_date<-as.numeric(unlist(strsplit(start_date,"-")))
-  start_date<-paste(start_date[2],start_date[3],start_date[1],sep="/")
-  end_date<-as.numeric(unlist(strsplit(end_date,"-")))
-  end_date<-paste(end_date[2],end_date[3],end_date[1],sep="/")
+  start_date<- as.numeric(unlist(strsplit(start_date,"-")))
+  start_date<- paste(start_date[2],start_date[3],start_date[1],sep="/")
+  end_date<- as.numeric(unlist(strsplit(end_date,"-")))
+  end_date<- paste(end_date[2],end_date[3],end_date[1],sep="/")
   
   # Note that date_format= "5/23/2000" 
   this.url<-paste0("http://www.xignite.com/xGlobalHistorical.csv/GetGlobalHistoricalQuotesRange?Identifier=",symbol,

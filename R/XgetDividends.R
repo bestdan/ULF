@@ -5,7 +5,7 @@
 #' @param end_date The end of the historical date range. Defaults to today. 
 #' @param token Your API Token  
 #' @return A dataframe of date and dividends
-#' @keywords finance, portfolio, annualize, convenience
+#' @keywords finance portfolio annualize convenience
 #' @import timeSeries
 #' @seealso Nothing. 
 #' @export
@@ -24,7 +24,7 @@ XgetDividends<-function(symbol,start_date,end_date=as.character(Sys.Date()),toke
                    "&IdentifierType=Symbol&StartDate=",start_date,"&EndDate=",end_date,
                    "&_DownloadFile=true&_fields=Dividends.PayDate,Dividends.DividendAmount&_csvflatten=true")
   if(token!="NA") this.url<-paste0(this.url,"&_Token=",token)
-  print(this.url)
+  #print(this.url)
   result<-read.csv(this.url)
   names(result)<-c("Date","Value")
   result<-aggregate(Value~Date,result,sum)

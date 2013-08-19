@@ -17,6 +17,7 @@
 }
 \examples{
 dollar(10^seq(1,10))
+dollar(10^seq(1,10),fixed=TRUE)
 }
 \seealso{
   \code{\link{nchar}} which this function wraps

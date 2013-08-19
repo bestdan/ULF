@@ -1,6 +1,6 @@
 \name{XgetSymbols}
 \alias{XgetSymbols}
-\title{#' Get prices & returns from XIgnite API}
+\title{Get prices & returns from XIgnite API}
 \usage{
   XgetSymbols(symbol, start_date,
     end_date = as.character(Sys.Date()), adjtype,
@@ -31,7 +31,7 @@
   A dataframe of date and values
 }
 \description{
-  #' Get prices & returns from XIgnite API
+  Get prices & returns from XIgnite API
 }
 \examples{
 data<-XgetSymbols("EEM","2013-01-01",adjtype="SplitOnly",token="56709B5C32C441D782B558DCCC923CBB")

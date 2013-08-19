@@ -8,9 +8,10 @@
 #' @export
 #' @examples
 #' dollar(10^seq(1,10))
+#' dollar(10^seq(1,10),fixed=TRUE)
 
 
-dollar<-function(x,fixed=FALSE){
+dollar<-function(x, fixed=FALSE){
   if (fixed==TRUE) {
     return(paste("$",prettyNum(x,big.mark=",",preserve.width="common"),sep=""))  
   } else {

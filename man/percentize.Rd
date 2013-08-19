@@ -17,11 +17,6 @@
 \description{
   Create percent labels based on a numeric vector
 }
-\section{Note}{
-  This is really only useful in specific cases where you
-  can specify the asset allocation by risk level ahead of
-  time.
-}
 \examples{
 percentize(runif(10),rounder=3)
 }

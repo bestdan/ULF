@@ -1,5 +1,4 @@
 #' Create percent labels based on a numeric vector
-#' @section Note: This is really only useful in specific cases where you can specify the asset allocation by risk level ahead of time. 
 #' 
 #' @param x A numeric vector. 
 #' @param rounder The number of places to round to, before creating the percent.

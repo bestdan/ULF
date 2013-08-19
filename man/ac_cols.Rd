@@ -24,6 +24,9 @@ barplot(seq(1,length(this.colors)),col=this.colors)
 this.colors<-ac_cols(0,4,6)
 barplot(seq(1,length(this.colors)),col=this.colors)
 }
+\author{
+  Daniel P. Egan
+}
 \seealso{
   nothing
 }

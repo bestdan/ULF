@@ -29,8 +29,8 @@ head(data,20)
 \seealso{
   Nothing.
 }
-\keyword{annualize,}
+\keyword{annualize}
 \keyword{convenience}
-\keyword{finance,}
-\keyword{portfolio,}
+\keyword{finance}
+\keyword{portfolio}
 
