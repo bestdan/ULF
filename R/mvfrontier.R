@@ -3,6 +3,7 @@
 #' 
 #' @param risk_levels A vector of numeric risk levels, from 0 to 1, to calculate optimal portfolios from
 #' @param aaf The asset allocation function, based on risk_levels, to calculate proportions of assets. 
+#' @param ... additional arguments to pass to the aaf
 #' @param retvec A vector of expected returns
 #' @param covmat The covariance matrix
 #' @return A summary matrix of expected return, portfolio volatility, and var5/10/15 for each portfolio

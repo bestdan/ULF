@@ -11,6 +11,8 @@
   \item{aaf}{The asset allocation function, based on
   risk_levels, to calculate proportions of assets.}
 
+  \item{...}{additional arguments to pass to the aaf}
+
   \item{retvec}{A vector of expected returns}
 
   \item{covmat}{The covariance matrix}
