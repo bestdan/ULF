@@ -12,8 +12,8 @@
 #' @seealso nothing
 #' @export
 #' @examples
-#' risk_levels<-seq(0.4,0.6,0.1) #Risk Levels
-#' maxpar<- -1/length(risk_levels)  #This defines the slope in graph below for linear stocks
+#' risk_levels<-seq(0,1,0.1) #Risk Levels
+#' maxpar<- (-1/length(risk_levels))  #This defines the slope in graph below for linear stocks
 #' aaf_v1<-function(risk){
 #'   eq_alloc<-c(0.25,0.25,0.08,0.07,0.25,0.1)
 #'   bnd_alloc<-c(0.5,0.5)
@@ -30,7 +30,7 @@
 #' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,periods=1,maxcashpar=maxpar)
 
 
-mvfrontier<-function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
+mvfrontier<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar,cashsplit) {
   # Create summary matrix for outcomes at each risk level. 
   sum_mat<-as.data.frame(matrix(NA,nrow=length(risk_levels),ncol=6))
   names(sum_mat)<-c("risk","ret","vol","var15","var10","var05")
@@ -39,21 +39,27 @@ mvfrontier<-function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar) {
     risk=risk_levels[i]
     sum_mat$risk[i]<- risk
     FUN <- match.fun(aaf) #Find the named asset allocation function 
-    if (aaf=="aaf_v2b") this.aa<-FUN(risk,this.maxcashpar)  
-    if (aaf=="aaf_v2a") this.aa<-FUN(risk,this.maxcashpar)
-    if (aaf=="aaf_v1") this.aa<-FUN(risk)
+      if (aaf=="aaf_v2b") this.aa<-FUN(risk,maxcashpar)  
+      if (aaf=="aaf_v2a") this.aa<-FUN(risk)
+      if (aaf=="aaf_v1") this.aa<-FUN(risk)
+      if (aaf=="aaf_v1_simple") this.aa<-FUN(risk)
+      if (aaf=="aaf_v2c") this.aa<-FUN(risk,maxcashpar)  
+      if (aaf=="aaf_v2d") this.aa<-FUN(risk,maxcashpar)  
+      if (aaf=="aaf_v3") this.aa<-FUN(risk,maxcashpar)  
+      if (aaf=="aaf_v3b") this.aa<-FUN(risk,maxcashpar=maxcashpar,cashsplit=cashsplit)  
+      if (aaf=="aaf_bm") this.aa<-FUN(risk)
+      if (aaf=="aaf_bm_dom") this.aa<-FUN(risk)
+    
     # Average returns
-    this.ret<- sum(this.aa*retvec)
-    sum_mat$ret[i]<-  (((this.ret+1)^periods)-1)*100
+    sum_mat$ret[i]<- sum(this.aa*retvec)
     # Vols
-    this.port.vol<- sqrt(sum(t(this.aa) %*% (covmat) *this.aa))
-    sum_mat$vol[i]<-this.port.vol*sqrt(periods)*100
-    this.port.vol<-sum_mat$vol[i]
-    sum_mat$var15[i]<-  (-1.04*this.port.vol)  + this.ret
-    sum_mat$var10[i]<- (-1.3*this.port.vol) + this.ret #one sided 
-    sum_mat$var05[i]<- (-1.65*this.port.vol) + this.ret #one sided 
-    rm(this.port.vol,this.ret,this.aa)
+    sum_mat$vol[i]<-sqrt(sum(t(this.aa) %*% (covmat) *this.aa))
+    #this.port.vol<-sum_mat$vol[i]
+    ##sum_mat$var15[i]<-  (-1.04*this.port.vol)  + this.ret
+    #sum_mat$var10[i]<- (-1.3*this.port.vol) + this.ret #one sided 
+    #sum_mat$var05[i]<- (-1.65*this.port.vol) + this.ret #one sided 
+    rm(this.aa)
   }
   return(sum_mat)
 }
-#################################################################################
+

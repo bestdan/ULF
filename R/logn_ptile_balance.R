@@ -17,7 +17,7 @@
 
 logn_ptile_balance<-function(start_amt,contribution,t,ret,vol,p) {
   ret<-log((ret/100)+1)/12  # Converts  5% annual return of "5" into monthy return
-  vol<-(vol/100)
+  vol<-(vol/100)  # Annual volatility - note that it is converted to monthly below. 
   tseq<-seq(1,t)
   p<-qnorm(p)
   balance<-(start_amt+contribution)*exp((ret*tseq) +p*vol*sqrt(tseq/12))

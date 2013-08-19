@@ -1,0 +1,26 @@
+\name{round2}
+\alias{round2}
+\title{Round to two places. Just a convenience thang...}
+\usage{
+  round2(x)
+}
+\arguments{
+  \item{x}{A numeric vector.}
+}
+\value{
+  A vector of rounder values.
+}
+\description{
+  Round to two places. Just a convenience thang...
+}
+\examples{
+round2(runif(10))
+}
+\seealso{
+  nothing
+}
+\keyword{functions,}
+\keyword{little}
+\keyword{percent,}
+\keyword{useful}
+

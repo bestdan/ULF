@@ -23,7 +23,11 @@
   Get prices & returns from XIgnite API
 }
 \examples{
+<<<<<<< HEAD
 data<-XgetDividends("AGG","2004-01-01")
+=======
+data<-XgetDividends("AGG","2004-01-01",token="56709B5C32C441D782B558DCCC923CBB")
+>>>>>>> cc6773c792a756d9950f8a94ecb260e42f7af8dd
 head(data,20)
 }
 \seealso{

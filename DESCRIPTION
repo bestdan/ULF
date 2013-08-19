@@ -31,6 +31,14 @@ Collate:
     'rescale.R'
     'XgetDividends.R'
     'XgetSymbols.R'
+<<<<<<< HEAD
+=======
+    'percentize.R'
+    'round2.R'
+    'RFRYieldCurveUpdate.R'
+    'bl.compute.eqret.R'
+    'bl.compute.riskaversion.R'
+>>>>>>> cc6773c792a756d9950f8a94ecb260e42f7af8dd
 Depends:
     fBasics,
     timeSeries

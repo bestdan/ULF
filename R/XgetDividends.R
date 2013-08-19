@@ -10,7 +10,11 @@
 #' @seealso Nothing. 
 #' @export
 #' @examples
+<<<<<<< HEAD
 #' data<-XgetDividends("AGG","2004-01-01")
+=======
+#' data<-XgetDividends("AGG","2004-01-01",token="56709B5C32C441D782B558DCCC923CBB")
+>>>>>>> cc6773c792a756d9950f8a94ecb260e42f7af8dd
 #' head(data,20)
 
 XgetDividends<-function(symbol,start_date,end_date=as.character(Sys.Date()),token="NA") {
@@ -23,10 +27,16 @@ XgetDividends<-function(symbol,start_date,end_date=as.character(Sys.Date()),toke
   this.url<-paste0("http://www.xignite.com/xGlobalHistorical.csv/GetCashDividendHistory?Identifier=",symbol,
                    "&IdentifierType=Symbol&StartDate=",start_date,"&EndDate=",end_date,
                    "&_DownloadFile=true&_fields=Dividends.PayDate,Dividends.DividendAmount&_csvflatten=true")
+<<<<<<< HEAD
   if(token!="NA") paste0(this.url,"&_Token=",token)
   print(this.url)
   result<-read.csv(this.url)
   result<-subset(result,select=c(-X))
+=======
+  if(token!="NA") this.url<-paste0(this.url,"&_Token=",token)
+  print(this.url)
+  result<-read.csv(this.url)
+>>>>>>> cc6773c792a756d9950f8a94ecb260e42f7af8dd
   names(result)<-c("Date","Value")
   result<-aggregate(Value~Date,result,sum)
   result<-subset(result,Value!=0)  
