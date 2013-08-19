@@ -1,0 +1,42 @@
+\name{mvstats}
+\alias{mvstats}
+\title{Function for calcualting Mean Variance statistics}
+\usage{
+  mvstats(aa, retvec, covmat)
+}
+\arguments{
+  \item{aa}{The asset allocation weights}
+
+  \item{retvec}{A vector of expected returns}
+
+  \item{covmat}{The covariance matrix}
+}
+\value{
+  A summary matrix of expected return, portfolio
+  volatility, and var5/10/15 for each portfolio
+}
+\description{
+  Function for calcualting Mean Variance statistics
+}
+\section{Note}{
+  This is really only useful in specific cases where you
+  can specify the asset allocation by risk level ahead of
+  time.
+}
+\examples{
+alloc<-c(0.25,0.25,0.08,0.07,0.25,0.1)
+rets<-seq(2,12,length.out=length(alloc))
+vols<-rets*2.25
+cormat<-diag(1,length(alloc))
+covmat<-vols * cormat * vols
+mvstats(aa=alloc,retvec=rets,covmat=covmat)
+}
+\seealso{
+  nothing
+}
+\keyword{finance,}
+\keyword{functions,}
+\keyword{little}
+\keyword{portfolio}
+\keyword{useful}
+

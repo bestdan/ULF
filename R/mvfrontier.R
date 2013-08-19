@@ -1,12 +1,12 @@
 #' Function for calcualting Mean Variance frontier
-#' @section Note: This is really only useful in specific cases where you can specify the asset allocation by risk level ahead of time. 
+#' @note Note: This is really only useful in specific cases where you can specify the asset allocation by risk level ahead of time. Very dependendent upon that coding. 
 #' 
 #' @param risk_levels A vector of numeric risk levels, from 0 to 1, to calculate optimal portfolios from
 #' @param aaf The asset allocation function, based on risk_levels, to calculate proportions of assets. 
 #' @param retvec A vector of expected returns
 #' @param covmat The covariance matrix
-#' @param periods Number of periods, per year, the data represents. I.e. monthly=12. 
 #' @param maxcashpar At what risk level does the portfolio have zero cash? 
+#' @param cashsplit What proportion of 'cash' is allocated to VTIP?
 #' @return A summary matrix of expected return, portfolio volatility, and var5/10/15 for each portfolio
 #' @keywords useful little functions, finance, portfolio
 #' @seealso nothing
@@ -27,39 +27,31 @@
 #' vols<-rets*2.25
 #' cormat<-diag(1,8)
 #' covmat<-vols * cormat * vols
-#' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,periods=1,maxcashpar=maxpar)
+#' mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat,maxcashpar=maxpar)
 
 
-mvfrontier<- function(risk_levels,aaf,retvec,covmat,periods=12,maxcashpar,cashsplit) {
+mvfrontier<- function(risk_levels,aaf,retvec,covmat,maxcashpar,cashsplit) {
   # Create summary matrix for outcomes at each risk level. 
-  sum_mat<-as.data.frame(matrix(NA,nrow=length(risk_levels),ncol=6))
-  names(sum_mat)<-c("risk","ret","vol","var15","var10","var05")
+  sum_mat<-as.data.frame(matrix(NA,nrow=length(risk_levels),ncol=3))
+  names(sum_mat)<-c("risk","ret","vol")
   row.names(sum_mat)<- paste("r_",risk_levels,sep="")
   for (i in seq_along(risk_levels)) {
-    risk=risk_levels[i]
+    risk<- risk_levels[i]
+    #print(risk)
     sum_mat$risk[i]<- risk
-    FUN <- match.fun(aaf) #Find the named asset allocation function 
-      if (aaf=="aaf_v2b") this.aa<-FUN(risk,maxcashpar)  
-      if (aaf=="aaf_v2a") this.aa<-FUN(risk)
-      if (aaf=="aaf_v1") this.aa<-FUN(risk)
-      if (aaf=="aaf_v1_simple") this.aa<-FUN(risk)
-      if (aaf=="aaf_v2c") this.aa<-FUN(risk,maxcashpar)  
-      if (aaf=="aaf_v2d") this.aa<-FUN(risk,maxcashpar)  
-      if (aaf=="aaf_v3") this.aa<-FUN(risk,maxcashpar)  
-      if (aaf=="aaf_v3b") this.aa<-FUN(risk,maxcashpar=maxcashpar,cashsplit=cashsplit)  
-      if (aaf=="aaf_bm") this.aa<-FUN(risk)
-      if (aaf=="aaf_bm_dom") this.aa<-FUN(risk)
-    
-    # Average returns
-    sum_mat$ret[i]<- sum(this.aa*retvec)
-    # Vols
-    sum_mat$vol[i]<-sqrt(sum(t(this.aa) %*% (covmat) *this.aa))
-    #this.port.vol<-sum_mat$vol[i]
-    ##sum_mat$var15[i]<-  (-1.04*this.port.vol)  + this.ret
-    #sum_mat$var10[i]<- (-1.3*this.port.vol) + this.ret #one sided 
-    #sum_mat$var05[i]<- (-1.65*this.port.vol) + this.ret #one sided 
-    rm(this.aa)
+    aaf.out<-function(x, type, ...) {
+      switch(type,
+      "aaf_v1"           = aaf_v1(x),
+      "aaf_v1_simple"    = aaf_dom_simple(aaf_v1(x)),
+      "aaf_v1_dom"       = aaf_v1_dom(x),
+      "aaf_v2"           = aaf_v2(x),
+      "aaf_v2_simple"   = aaf_dom_simple(aaf_v2(x,tilt="WORLD")),
+      "aaf_bm"           = aaf_bm(x),
+      "aaf_bm_dom"       = aaf_bm_dom(x))
+    }
+    #this.aa<-aaf.out(i,"aaf_v1")
+    this.aa<- aaf.out(risk, aaf)
+    sum_mat[i,c(2,3)]<- mvstats(this.aa,retvec,covmat)
   }
   return(sum_mat)
 }
-
