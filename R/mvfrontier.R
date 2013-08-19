@@ -37,23 +37,13 @@ mvfrontier<- function(risk_levels,aaf,retvec,covmat,...) {
   for (i in seq_along(risk_levels)) {
     risk<- risk_levels[i]
     sum_mat$risk[i]<- risk
-#     aaf.out<-function(x, type, ...) {
-#       switch(type,
-#       "aaf_v1"           = aaf_v1(x),
-#       "aaf_v1_simple"    = aaf_dom_simple(aaf_v1(x)),
-#       "aaf_v1_dom"       = aaf_v1_dom(x),
-#       "aaf_v2"           = aaf_v2(x),
-#       "aaf_v2_simple"   = aaf_dom_simple(aaf_v2(x,tilt="WORLD")),
-#       "aaf_bm"           = aaf_bm(x),
-#       "aaf_bm_dom"       = aaf_bm_dom(x))
-#     }
     aaf.out<-function(x,func, ...){
       FUN<- match.fun(func)
       aa<-FUN(x, ...)
       return(aa)
     }
     #this.aa<-aaf.out( .5,"aaf_v2",tickers="actual")
-    this.aa<- aaf.out(risk, aaf)
+    this.aa<- aaf.out(risk, aaf, ...)
     sum_mat[i,c(2,3)]<- mvstats(this.aa,retvec,covmat)
   }
   return(sum_mat)
