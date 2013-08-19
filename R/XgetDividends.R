@@ -10,38 +10,38 @@
 #' @seealso Nothing. 
 #' @export
 #' @examples
-<<<<<<< HEAD
-#' data<-XgetDividends("AGG","2004-01-01")
-=======
+#' data<-XgetDividends("AGG",start_date="2004-01-01")
 #' data<-XgetDividends("AGG","2004-01-01",token="56709B5C32C441D782B558DCCC923CBB")
->>>>>>> cc6773c792a756d9950f8a94ecb260e42f7af8dd
 #' head(data,20)
 
 XgetDividends<-function(symbol,start_date,end_date=as.character(Sys.Date()),token="NA") {
+  require(timeSeries)
+  #symbol<- 'AGG'
+  #start_date<- "2004-01-01"
+  #end_date<-as.character(Sys.Date())
   start_date<-as.numeric(unlist(strsplit(start_date,"-")))
   start_date<-paste(start_date[2],start_date[3],start_date[1],sep="/")
   end_date<-as.numeric(unlist(strsplit(end_date,"-")))
   end_date<-paste(end_date[2],end_date[3],end_date[1],sep="/")
+  #token<-"56709B5C32C441D782B558DCCC923CBB"
   
   # Note that date_format= "5/23/2000" 
   this.url<-paste0("http://www.xignite.com/xGlobalHistorical.csv/GetCashDividendHistory?Identifier=",symbol,
                    "&IdentifierType=Symbol&StartDate=",start_date,"&EndDate=",end_date,
                    "&_DownloadFile=true&_fields=Dividends.PayDate,Dividends.DividendAmount&_csvflatten=true")
-<<<<<<< HEAD
+
   if(token!="NA") paste0(this.url,"&_Token=",token)
   print(this.url)
   result<-read.csv(this.url)
-  result<-subset(result,select=c(-X))
-=======
-  if(token!="NA") this.url<-paste0(this.url,"&_Token=",token)
-  print(this.url)
-  result<-read.csv(this.url)
->>>>>>> cc6773c792a756d9950f8a94ecb260e42f7af8dd
+
   names(result)<-c("Date","Value")
-  result<-aggregate(Value~Date,result,sum)
-  result<-subset(result,Value!=0)  
-  row.names(result)<-result[,1]
+  if (nrow(result)>1){
+    result<-aggregate(Value~Date,result,sum)
+    result<-subset(result,Value!=0)    
+  }
+  #row.names(result)<-result[,1]
   names(result)<-c("Date",symbol)
-  result<-as.timeSeries(result)
+  #result<-as.timeSeries(result)
+  result<-2
   return(result)
 }
