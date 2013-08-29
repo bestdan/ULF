@@ -18,9 +18,15 @@
 }
 \examples{
 obs<-20
-rets<-data.frame(a=seq(.7,1.4,length.out=obs),b=runif(obs),c=rnorm(obs))
-rets$y<-sin(rets$a+rets$b)
-plot_lines(rets)
+ rets<-data.frame(a=seq(.7,1.4,length.out=obs),b=runif(obs),c=rnorm(obs))
+ rets$y<-sin(rets$a+rets$b)
+ plot_lines(rets)
+ rets<-data.frame(matrix(runif(obs*20),ncol=20,nrow=obs))
+ for (i in 1:ncol(rets)) {
+ rets[,i]<- rets[,i] + i
+ }
+ index<-seq(1,obs)
+ plot_lines(cbind(index,rets))
 }
 \seealso{
   Nothing.
