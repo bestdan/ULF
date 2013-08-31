@@ -44,5 +44,3 @@ plot_lines<-function(mat, ...) {
     lines(mat[,i]~mat[,1],col=thisColors[(i-1)], ...)  
   }
 }
-
-

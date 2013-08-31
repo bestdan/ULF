@@ -34,8 +34,10 @@
   Get prices & returns from XIgnite API
 }
 \examples{
-data<-XgetSymbols("EEM","2013-01-01",adjtype="SplitOnly",token="56709B5C32C441D782B558DCCC923CBB")
+data<-XgetSymbols("EEM", start_date="2013-01-01", adjtype="SplitOnly", token="56709B5C32C441D782B558DCCC923CBB")
 head(data,20)
+#Throws error.
+# data<-XgetSymbols("EEM", start_date="2013-01-01", adjtype="SplitOnly", quotetype="Close", token="56709B5C32C441D782B558DCCC923CBB")
 }
 \seealso{
   Nothing.

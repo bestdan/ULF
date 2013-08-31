@@ -28,10 +28,25 @@
 #' @export
 #' @import timeSeries
 #' @examples
-#' data<-XgetSymbols("EEM","2013-01-01",adjtype="SplitOnly",token="56709B5C32C441D782B558DCCC923CBB")
+#' data<-XgetSymbols("EEM", start_date="2013-01-01", adjtype="SplitOnly", token="56709B5C32C441D782B558DCCC923CBB")
 #' head(data,20)
+#' #Throws error. 
+#' # data<-XgetSymbols("EEM", start_date="2013-01-01", adjtype="SplitOnly", quotetype="Close", token="56709B5C32C441D782B558DCCC923CBB")
+
 
 XgetSymbols<-function(symbol,start_date,end_date=as.character(Sys.Date()),adjtype,quotetype="LastClose",token="NA") {
+  require(xts)
+  require(timeSeries)
+  if (adjtype %in% c("None","SplitOnly",
+                     "CashDividendOnly","SplitAndProportionalCashDividend", "SplitAndCashDividend","All")==FALSE) {
+    stop("Incorrect adjtype input. Fail.")
+  }
+  
+  if (quotetype %in% c("Last","Open","High","Low","Volume","LastClose","ChangeFromOpen",
+                     "PercentChangeFromOpen","ChangeFromLastClose","PercentChangeFromLastClose")==FALSE) {
+    stop("Incorrect quotetype input. Fail.")
+    
+  }
   start_date<- as.numeric(unlist(strsplit(start_date,"-")))
   start_date<- paste(start_date[2],start_date[3],start_date[1],sep="/")
   end_date<- as.numeric(unlist(strsplit(end_date,"-")))
@@ -52,4 +67,3 @@ XgetSymbols<-function(symbol,start_date,end_date=as.character(Sys.Date()),adjtyp
   result<-as.timeSeries(result)
   return(result)
 }
-
