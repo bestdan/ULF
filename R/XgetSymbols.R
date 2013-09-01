@@ -22,21 +22,24 @@
 #' ChangeFromLastClose,
 #' PercentChangeFromLastClose,
 #' @param token Your XIgnite API Token  
+#' @param ShowURL Should the XIgnite API ULR be shown (helps with debugging)
 #' @return A dataframe of date and values
 #' @keywords finance, portfolio, annualize, convenience
 #' @seealso Nothing. 
 #' @export
-#' @import timeSeries
+#' @import timeSeries 
 #' @examples
-#' data<-XgetSymbols("EEM", start_date="2013-01-01", adjtype="SplitOnly", token="56709B5C32C441D782B558DCCC923CBB")
-#' head(data,20)
-#' #Throws error. 
-#' # data<-XgetSymbols("EEM", start_date="2013-01-01", adjtype="SplitOnly", quotetype="Close", token="56709B5C32C441D782B558DCCC923CBB")
+#' # Note: no examples will work without a token. 
+#' # data<-XgetSymbols("EEM", start_date="2013-01-01", adjtype="SplitOnly")
+#' # head(data,20)
 
 
-XgetSymbols<-function(symbol,start_date,end_date=as.character(Sys.Date()),adjtype,quotetype="LastClose",token="NA") {
-  require(xts)
+
+XgetSymbols<-function(symbol,start_date,end_date=as.character(Sys.Date()),adjtype,quotetype="LastClose",token="NA", ShowURL=FALSE) {
   require(timeSeries)
+  if (length(token) <5) {
+    stop("You need to supply a valid token.")
+  }
   if (adjtype %in% c("None","SplitOnly",
                      "CashDividendOnly","SplitAndProportionalCashDividend", "SplitAndCashDividend","All")==FALSE) {
     stop("Incorrect adjtype input. Fail.")
@@ -57,7 +60,7 @@ XgetSymbols<-function(symbol,start_date,end_date=as.character(Sys.Date()),adjtyp
                    "&IdentifierType=Symbol&AdjustmentMethod=",adjtype,"&StartDate=",start_date,"&EndDate=",end_date,
                    "&_DownloadFile=true&_fields=GlobalQuotes.Date,","GlobalQuotes.",quotetype,"&_csvflatten=true")
   if(token!="NA") this.url<-paste0(this.url,"&_Token=",token)
-  print(this.url)
+  if (ShowURL==TRUE) print(this.url)
   result<-read.csv(this.url)
   #result<-subset(result,select=c(-X))
   names(result)<-c("Date","Value")

@@ -3,7 +3,8 @@
 \title{Get prices & returns from XIgnite API}
 \usage{
   XgetDividends(symbol, start_date,
-    end_date = as.character(Sys.Date()), token = "NA")
+    end_date = as.character(Sys.Date()), token = "NA",
+    ShowULR = FALSE)
 }
 \arguments{
   \item{symbol}{The symbol to be queries}
@@ -15,6 +16,9 @@
   Defaults to today.}
 
   \item{token}{Your API Token}
+
+  \item{ShowURL}{Should the XIgnite API ULR be shown (helps
+  with debugging)}
 }
 \value{
   A dataframe of date and dividends
@@ -23,8 +27,9 @@
   Get prices & returns from XIgnite API
 }
 \examples{
-data<-XgetDividends("AGG","2004-01-01",token="56709B5C32C441D782B558DCCC923CBB")
-head(data,20)
+# Note: No examples will work without a valid token.
+# data<-XgetDividends("AGG","2004-01-01")
+# head(data,20)
 }
 \seealso{
   Nothing.

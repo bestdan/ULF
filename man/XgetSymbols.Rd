@@ -4,7 +4,7 @@
 \usage{
   XgetSymbols(symbol, start_date,
     end_date = as.character(Sys.Date()), adjtype,
-    quotetype = "LastClose", token = "NA")
+    quotetype = "LastClose", token = "NA", ShowURL = FALSE)
 }
 \arguments{
   \item{symbol}{The symbol to be queries}
@@ -26,6 +26,9 @@
   ChangeFromLastClose, PercentChangeFromLastClose,}
 
   \item{token}{Your XIgnite API Token}
+
+  \item{ShowURL}{Should the XIgnite API ULR be shown (helps
+  with debugging)}
 }
 \value{
   A dataframe of date and values
@@ -34,10 +37,9 @@
   Get prices & returns from XIgnite API
 }
 \examples{
-data<-XgetSymbols("EEM", start_date="2013-01-01", adjtype="SplitOnly", token="56709B5C32C441D782B558DCCC923CBB")
-head(data,20)
-#Throws error.
-# data<-XgetSymbols("EEM", start_date="2013-01-01", adjtype="SplitOnly", quotetype="Close", token="56709B5C32C441D782B558DCCC923CBB")
+# Note: no examples will work without a token.
+# data<-XgetSymbols("EEM", start_date="2013-01-01", adjtype="SplitOnly")
+# head(data,20)
 }
 \seealso{
   Nothing.
