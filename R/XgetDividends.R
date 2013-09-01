@@ -17,7 +17,7 @@
 
 XgetDividends<-function(symbol,start_date,end_date=as.character(Sys.Date()),token="NA",ShowULR=FALSE) {
   require(timeSeries)
-  if (length(token) <5) {
+  if (nchar(token) <5) {
     stop("You need to supply a valid token.")
   }
   
