@@ -1,7 +1,7 @@
 #' Faster version of split
 #'
 #' @param x vector or data frame containing values to be divided into groups.
-#' @param f a ‘factor’ in the sense that 
+#' @param f a factor in the sense that 
 #' as.factor(f) defines the grouping, or a list of such factors 
 #' in which case their interaction is used for the grouping.
 #' @param drop logical indicating if levels that do not occur should be dropped (if f is a factor or a list).
