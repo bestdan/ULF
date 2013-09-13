@@ -33,6 +33,7 @@ Collate:
     'bl.compute.eqret.R'
     'bl.compute.riskaversion.R'
     'mvstats.R'
+    'mysplit.R'
 Depends:
     fBasics,
     timeSeries
