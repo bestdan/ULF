@@ -17,20 +17,18 @@
 #' x <- data.frame(a = 1:10, b = rep(1:2, each=5))
 #' splitx <- mysplit(x, x$b)
 #' 
-mysplit <- 
-  function (x, f, drop = FALSE, ...) 
-  { 
-    f <- as.factor(f) 
-    tmp <- lapply(x, function(xi) split(xi, f, drop = drop, ...)) 
-    rn <- split(rownames(x), f, drop = drop, ...) 
-    tmp <- unlist(unname(tmp), recursive = FALSE) 
-    tmp <- split(tmp, factor(names(tmp), levels = unique(names(tmp)))) 
-    tmp <- lapply(setNames(seq_along(tmp), names(tmp)), function(i) { 
-      t <- tmp[[i]] 
-      names(t) <- names(x) 
-      attr(t, "row.names") <- rn[[i]] 
-      class(t) <- "data.frame" 
-      t 
-    }) 
-    tmp 
-  } 
+mysplit <- function(x, f, drop = FALSE, ...){ 
+  f <- as.factor(f) 
+  tmp <- lapply(x, function(xi) split(xi, f, drop = drop, ...)) 
+  rn <- split(rownames(x), f, drop = drop, ...) 
+  tmp <- unlist(unname(tmp), recursive = FALSE) 
+  tmp <- split(tmp, factor(names(tmp), levels = unique(names(tmp)))) 
+  tmp <- lapply(setNames(seq_along(tmp), names(tmp)), function(i) { 
+    t <- tmp[[i]] 
+    names(t) <- names(x) 
+    attr(t, "row.names") <- rn[[i]] 
+    class(t) <- "data.frame" 
+    t 
+  }) 
+  tmp 
+} 
