@@ -19,7 +19,7 @@
 \examples{
 corMat <- matrix(c(1,0,0,0,1,.2,0,.2,1),nrow=3)
 vols <- c(0,5,20)
-covMat<- corr2cov(corMat,vols)
+corr2cov(corMat,vols)
 }
 \author{
   Daniel P. Egan
