@@ -34,6 +34,7 @@ Collate:
     'bl.compute.riskaversion.R'
     'mvstats.R'
     'mysplit.R'
+    'corr2cov.R'
 Depends:
     fBasics,
     timeSeries
