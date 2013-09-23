@@ -1,0 +1,34 @@
+\name{pasteC}
+\alias{pasteC}
+\title{Collapse a vector into a comma separated string}
+\usage{
+  pasteC(x)
+}
+\arguments{
+  \item{x}{vector A vector of something, the elements of
+  which are to be collapsed into a comma separated
+  character string.}
+}
+\value{
+  string A comma separated string pf elements
+}
+\description{
+  Collapse a vector into a comma separated string
+}
+\note{
+  This is particularly useful for giving RMySQL a vector of
+  something which it needs to read in the format (1,2,3)
+  rather than (1 2 3).
+}
+\examples{
+x <- c(1,2,3)
+pasteC(x)
+}
+\author{
+  Patrick Burns
+}
+\seealso{
+  \code{\link{paste0}}
+}
+\keyword{paste}
+
