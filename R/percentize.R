@@ -7,10 +7,15 @@
 #' @seealso nothing
 #' @export
 #' @examples
-#' percentize(runif(10),rounder=3)
+#' percentize(0.015565)
+#' percentize(0.015565, rounder=5)
+
+
 
 percentize<-function(x,rounder=2) {
-  x<-round(x,rounder)
-  y<-paste0(x*100,"%")
+  x<-prettyNum(round(x,rounder)*100, digits=max(1,(rounder-2)))
+  y<-paste0(x,"%")
   return(y)
 }
+
+

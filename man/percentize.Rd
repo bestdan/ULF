@@ -18,7 +18,8 @@
   Create percent labels based on a numeric vector
 }
 \examples{
-percentize(runif(10),rounder=3)
+percentize(0.015565)
+percentize(0.015565, rounder=5)
 }
 \seealso{
   nothing
