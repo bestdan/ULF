@@ -36,6 +36,8 @@ Collate:
     'mysplit.R'
     'pasteC.R'
     'corr2cov.R'
+    'destring.R'
+    'pad.R'
 Depends:
     fBasics,
     timeSeries
