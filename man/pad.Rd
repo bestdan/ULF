@@ -6,6 +6,10 @@
 }
 \arguments{
   \item{x}{Input object}
+
+  \item{mx}{How many places do you want padded?}
+
+  \item{fill}{What should it be padded with?}
 }
 \value{
   value Non-string object

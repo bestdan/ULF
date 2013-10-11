@@ -15,7 +15,7 @@
 #' # data<-XgetDividends("AGG","2004-01-01")
 #' # head(data,20)
 
-XgetDividends<-function(symbol,start_date,end_date=as.character(Sys.Date()),token="NA",ShowULR=FALSE) {
+XgetDividends<-function(symbol,start_date,end_date=as.character(Sys.Date()),token="NA",ShowURL=FALSE) {
   require(timeSeries)
   if (nchar(token) <5) {
     stop("You need to supply a valid token.")

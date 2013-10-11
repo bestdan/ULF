@@ -4,7 +4,7 @@
 \usage{
   XgetDividends(symbol, start_date,
     end_date = as.character(Sys.Date()), token = "NA",
-    ShowULR = FALSE)
+    ShowURL = FALSE)
 }
 \arguments{
   \item{symbol}{The symbol to be queries}

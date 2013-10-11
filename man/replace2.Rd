@@ -1,0 +1,29 @@
+\name{replace2}
+\alias{replace2}
+\title{Replace a set of old things with new things. :)}
+\usage{
+  replace2(x, old, new)
+}
+\arguments{
+  \item{x}{Input object}
+
+  \item{old}{A vector of old things to be replaced in x}
+
+  \item{new}{A vector or new things to replace the old
+  things}
+}
+\value{
+  value A version of X with all olds replaced by news
+}
+\description{
+  Automatically add an alpha transparency level to a color.
+}
+\examples{
+replace2(LETTERS,old=c("A","C","E"),new=seq(1,3))
+}
+\seealso{
+  \code{\link{is.character}} which this function wraps
+}
+\keyword{alpha}
+\keyword{color}
+

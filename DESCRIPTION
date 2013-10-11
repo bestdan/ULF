@@ -38,6 +38,7 @@ Collate:
     'corr2cov.R'
     'destring.R'
     'pad.R'
+    'replace2.R'
 Depends:
     fBasics,
     timeSeries

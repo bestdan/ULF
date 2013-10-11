@@ -1,5 +1,7 @@
 #' Pad numeric vars to strings of specified size
 #' @param x Input object
+#' @param mx How many places do you want padded?
+#' @param fill What should it be padded with?
 #' @return value Non-string object
 #' @keywords color alpha 
 #' @seealso \code{\link{is.character}} which this function wraps
