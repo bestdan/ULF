@@ -2,7 +2,7 @@
 \alias{rmExcept}
 \title{Remove everything from the environment except X}
 \usage{
-  rmExcept(x)
+  rmExcept(vars, envir = .GlobalEnv)
 }
 \arguments{
   \item{x}{A list of objects to not be removed, x=
@@ -16,11 +16,13 @@
 }
 \examples{
 ls()
+oldvar <- "c"
 currentvars<-ls()
 this <-seq(1:10)
 that <- seq(2:20)
+other <- c(2,4)
 ls()
-rmExcept(x=c(currentvars, "this"))  #Removes 'that'.
+rmExcept(c(currentvars,"this"))  #Removes 'that'.
 ls()
 }
 
