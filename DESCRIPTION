@@ -39,6 +39,7 @@ Collate:
     'destring.R'
     'pad.R'
     'replace2.R'
+    'rmExcept.R'
 Depends:
     fBasics,
     timeSeries
