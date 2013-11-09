@@ -1,0 +1,34 @@
+\name{deOutlier}
+\alias{deOutlier}
+\title{Remove outliers in data}
+\usage{
+  deOutlier(x, maxMadRatio = 200, action = "NA")
+}
+\arguments{
+  \item{x}{Input data}
+
+  \item{maxMADRatio}{The maximum allowable deviation, as a
+  factor of the median absolute deviation. Defaults to 200x
+  of the MAD.}
+
+  \item{action}{What should happen to outliers? Either 'NA'
+  or 'remove', which subsets.}
+}
+\value{
+  value A version of X with all olds replaced by news
+}
+\description{
+  Removes or NA's observations which are a factor greater
+  than the MAD
+}
+\examples{
+x<- c(rnorm(100), 1000, 2000)
+y<- deOutlier(x)
+setdiff(y,x)
+}
+\seealso{
+  \code{\link{is.character}} which this function wraps
+}
+\keyword{alpha}
+\keyword{color}
+

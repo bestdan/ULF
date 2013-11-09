@@ -5,8 +5,11 @@
   rmExcept(vars, envir = .GlobalEnv)
 }
 \arguments{
-  \item{x}{A list of objects to not be removed, x=
+  \item{vars}{A list of objects to not be removed, x=
   c("this","that)}
+
+  \item{envir}{What environment should they be removed
+  from.}
 }
 \value{
   Null - operates on the environment.

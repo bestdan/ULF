@@ -40,6 +40,7 @@ Collate:
     'pad.R'
     'replace2.R'
     'rmExcept.R'
+    'deOutlier.R'
 Depends:
     fBasics,
     timeSeries
