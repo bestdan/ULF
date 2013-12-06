@@ -30,7 +30,6 @@ plot_lines<- function (mat, thisColors=NULL, ...)
   plot(mat[, 2] ~ mat[, 1], ylim = c(ymin, ymax), xlim = c(xmin, 
                                                            xmax), type = "l", col = thisColors[1], ...)
   for (i in 3:ncol(mat)) {
-    lines(mat[, i] ~ mat[, 1], col = thisColors[(i - 1)], 
-          ...)
+    lines(mat[, i] ~ mat[, 1], col = thisColors[(i - 1)])
   }
 }
