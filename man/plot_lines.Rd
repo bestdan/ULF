@@ -2,7 +2,7 @@
 \alias{plot_lines}
 \title{Plot all observations as lines against index. The first column is the index.}
 \usage{
-  plot_lines(mat, ...)
+  plot_lines(mat, thisColors = NULL, ...)
 }
 \arguments{
   \item{mat}{matrix or dataframe of data to plot}
