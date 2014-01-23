@@ -41,6 +41,7 @@ Collate:
     'replace2.R'
     'rmExcept.R'
     'deOutlier.R'
+    'calcMaxDrawdown.R'
 Depends:
     fBasics,
     timeSeries

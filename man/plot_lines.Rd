@@ -7,6 +7,8 @@
 \arguments{
   \item{mat}{matrix or dataframe of data to plot}
 
+  \item{thisColors}{A set of colors to use in the plot.}
+
   \item{...}{Further plotting parameters, e.g. col}
 }
 \value{

@@ -1,0 +1,30 @@
+\name{calcMaxDrawdown}
+\alias{calcMaxDrawdown}
+\title{Calculate the maximum drawdown in a series of returns}
+\usage{
+  calcMaxDrawdown(data)
+}
+\arguments{
+  \item{data}{A vector in sorted chronological return, of
+  returns expressed as 0.05 for a 5 percent return}
+}
+\value{
+  A number representing the maximum cumulative drawdown in
+  the data series.
+}
+\description{
+  A function which reinvests dividends back where they came
+  from.
+}
+\note{
+  Can be use with negative returns to calculate maximum
+  upswing.
+}
+\examples{
+ex_data<- c(0, 0.05, -0.02, -0.05, 0.20, -0.30)
+calcMaxDrawdown(ex_data)
+}
+\author{
+  Daniel Egan
+}
+

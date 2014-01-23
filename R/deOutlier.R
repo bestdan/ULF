@@ -12,16 +12,16 @@
 #' y<- deOutlier(x)
 #' setdiff(y,x)
 
-deOutlier<- function(x, maxMadRatio=200, action="NA") {
+deOutlier<- function(x, maxMADRatio=200, action="NA") {
   if ( (action %in% c("NA","remove"))==FALSE) stop("Please use 'NA' or 'remove' for action")
   # How far away from the average is it? 
   deviation<- abs( (x-median(x))/mad(x))
   
   if (action=="NA") {
     y<- x
-    y[deviation > maxMadRatio]<-NA
+    y[deviation > maxMADRatio]<-NA
   } else {
-    if (action=="remove") y<- x[deviation < maxMadRatio]
+    if (action=="remove") y<- x[deviation < maxMADRatio]
   }
   return(y)
 }

@@ -2,7 +2,7 @@
 \alias{deOutlier}
 \title{Remove outliers in data}
 \usage{
-  deOutlier(x, maxMadRatio = 200, action = "NA")
+  deOutlier(x, maxMADRatio = 200, action = "NA")
 }
 \arguments{
   \item{x}{Input data}
