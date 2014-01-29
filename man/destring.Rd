@@ -2,22 +2,22 @@
 \alias{destring}
 \title{Automatically make an object nonstring}
 \usage{
-  destring(x)
+destring(x)
 }
 \arguments{
   \item{x}{Input object}
 }
 \value{
-  value Non-string object
+value Non-string object
 }
 \description{
-  Automatically add an alpha transparency level to a color.
+Automatically add an alpha transparency level to a color.
 }
 \examples{
 destring("24")
 }
 \seealso{
-  \code{\link{is.character}} which this function wraps
+\code{\link{is.character}} which this function wraps
 }
 \keyword{alpha}
 \keyword{color}

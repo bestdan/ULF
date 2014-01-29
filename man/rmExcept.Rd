@@ -2,7 +2,7 @@
 \alias{rmExcept}
 \title{Remove everything from the environment except X}
 \usage{
-  rmExcept(vars, envir = .GlobalEnv)
+rmExcept(vars, envir = .GlobalEnv)
 }
 \arguments{
   \item{vars}{A list of objects to not be removed, x=
@@ -12,10 +12,10 @@
   from.}
 }
 \value{
-  Null - operates on the environment.
+Null - operates on the environment.
 }
 \description{
-  Remove everything from the environment except X
+Remove everything from the environment except X
 }
 \examples{
 ls()

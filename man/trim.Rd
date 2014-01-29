@@ -2,22 +2,22 @@
 \alias{trim}
 \title{Pull dataframe names}
 \usage{
-  trim(x)
+trim(x)
 }
 \arguments{
   \item{x}{input string}
 }
 \value{
-  string name vector
+string name vector
 }
 \description{
-  Pull dataframe names
+Pull dataframe names
 }
 \examples{
 trim("   blah    ")
 }
 \seealso{
-  \code{\link{gsub}}
+\code{\link{gsub}}
 }
 \keyword{trim}
 

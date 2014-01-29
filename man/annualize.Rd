@@ -2,8 +2,7 @@
 \alias{annualize}
 \title{Annualize, or actually change to any period, returns data.}
 \usage{
-  annualize(ret, period = 12, informat = "a",
-    outformat = "c")
+annualize(ret, period = 12, informat = "a", outformat = "c")
 }
 \arguments{
   \item{ret}{Vector of returns}
@@ -19,13 +18,12 @@
   in? For a 5 percent return, a = 0.05, b = 1.05, c = 5}
 }
 \value{
-  string name vector
+string name vector
 }
 \description{
-  This function takes a return of a given formated input,
-  and modifies the period it is expressed over. This does
-  not only annualize, but can also monthly-ize, daily-ize,
-  etc. .
+This function takes a return of a given formated input, and
+modifies the period it is expressed over. This does not
+only annualize, but can also monthly-ize, daily-ize, etc. .
 }
 \examples{
 annualize(.05,12,"a","a")
@@ -35,7 +33,7 @@ annualize(5,12,"c","a")
 annualize(5,12,"c","b")
 }
 \seealso{
-  \code{\link{gsub}}
+\code{\link{gsub}}
 }
 \keyword{annualize,}
 \keyword{convenience}

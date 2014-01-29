@@ -8,40 +8,6 @@ Maintainer: Daniel P. Egan <dp.egan@gmail.com>
 Description: A set of convenience functions for doing analysis & data
     management in R.
 License: GPL
-Collate:
-    'add.alpha.R'
-    'trim.R'
-    'dollar.R'
-    'ptable.R'
-    'mvfrontier.R'
-    'matrix.mirror.R'
-    'matrix.rotate180.R'
-    'matrix.flip.R'
-    'annualize.R'
-    'rolling_index_cor.R'
-    'plot_lines.R'
-    'df_names.R'
-    'rolling_return.R'
-    'axis.lim.round.R'
-    'rbind.data.frame.NA.R'
-    'reproportion.R'
-    'rescale.R'
-    'XgetDividends.R'
-    'XgetSymbols.R'
-    'percentize.R'
-    'round2.R'
-    'bl.compute.eqret.R'
-    'bl.compute.riskaversion.R'
-    'mvstats.R'
-    'mysplit.R'
-    'pasteC.R'
-    'corr2cov.R'
-    'destring.R'
-    'pad.R'
-    'replace2.R'
-    'rmExcept.R'
-    'deOutlier.R'
-    'calcMaxDrawdown.R'
 Depends:
     fBasics,
     timeSeries

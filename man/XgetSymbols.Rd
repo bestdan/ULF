@@ -2,9 +2,8 @@
 \alias{XgetSymbols}
 \title{Get prices & returns from XIgnite API}
 \usage{
-  XgetSymbols(symbol, start_date,
-    end_date = as.character(Sys.Date()), adjtype,
-    quotetype = "LastClose", token = "NA", ShowURL = FALSE)
+XgetSymbols(symbol, start_date, end_date = as.character(Sys.Date()), adjtype,
+  quotetype = "LastClose", token = "NA", ShowURL = FALSE)
 }
 \arguments{
   \item{symbol}{The symbol to be queries}
@@ -31,10 +30,10 @@
   with debugging)}
 }
 \value{
-  A dataframe of date and values
+A dataframe of date and values
 }
 \description{
-  Get prices & returns from XIgnite API
+Get prices & returns from XIgnite API
 }
 \examples{
 # Note: no examples will work without a token.
@@ -42,7 +41,7 @@
 # head(data,20)
 }
 \seealso{
-  Nothing.
+Nothing.
 }
 \keyword{annualize,}
 \keyword{convenience}

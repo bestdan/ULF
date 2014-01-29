@@ -2,7 +2,7 @@
 \alias{pasteC}
 \title{Collapse a vector into a comma separated string}
 \usage{
-  pasteC(x)
+pasteC(x)
 }
 \arguments{
   \item{x}{vector A vector of something, the elements of
@@ -10,25 +10,25 @@
   character string.}
 }
 \value{
-  string A comma separated string pf elements
+string A comma separated string pf elements
 }
 \description{
-  Collapse a vector into a comma separated string
+Collapse a vector into a comma separated string
 }
 \note{
-  This is particularly useful for giving RMySQL a vector of
-  something which it needs to read in the format (1,2,3)
-  rather than (1 2 3).
+This is particularly useful for giving RMySQL a vector of
+something which it needs to read in the format (1,2,3)
+rather than (1 2 3).
 }
 \examples{
 x <- c(1,2,3)
 pasteC(x)
 }
 \author{
-  Patrick Burns
+Patrick Burns
 }
 \seealso{
-  \code{\link{paste0}}
+\code{\link{paste0}}
 }
 \keyword{paste}
 

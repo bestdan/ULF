@@ -2,7 +2,7 @@
 \alias{deOutlier}
 \title{Remove outliers in data}
 \usage{
-  deOutlier(x, maxMADRatio = 200, action = "NA")
+deOutlier(x, maxMADRatio = 200, action = "NA")
 }
 \arguments{
   \item{x}{Input data}
@@ -15,11 +15,11 @@
   or 'remove', which subsets.}
 }
 \value{
-  value A version of X with all olds replaced by news
+value A version of X with all olds replaced by news
 }
 \description{
-  Removes or NA's observations which are a factor greater
-  than the MAD
+Removes or NA's observations which are a factor greater
+than the MAD
 }
 \examples{
 x<- c(rnorm(100), 1000, 2000)
@@ -27,7 +27,7 @@ y<- deOutlier(x)
 setdiff(y,x)
 }
 \seealso{
-  \code{\link{is.character}} which this function wraps
+\code{\link{is.character}} which this function wraps
 }
 \keyword{alpha}
 \keyword{color}

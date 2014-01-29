@@ -2,9 +2,8 @@
 \alias{XgetDividends}
 \title{Get prices & returns from XIgnite API}
 \usage{
-  XgetDividends(symbol, start_date,
-    end_date = as.character(Sys.Date()), token = "NA",
-    ShowURL = FALSE)
+XgetDividends(symbol, start_date, end_date = as.character(Sys.Date()),
+  token = "NA", ShowURL = FALSE)
 }
 \arguments{
   \item{symbol}{The symbol to be queries}
@@ -21,10 +20,10 @@
   with debugging)}
 }
 \value{
-  A dataframe of date and dividends
+A dataframe of date and dividends
 }
 \description{
-  Get prices & returns from XIgnite API
+Get prices & returns from XIgnite API
 }
 \examples{
 # Note: No examples will work without a valid token.
@@ -32,7 +31,7 @@
 # head(data,20)
 }
 \seealso{
-  Nothing.
+Nothing.
 }
 \keyword{annualize}
 \keyword{convenience}

@@ -2,7 +2,7 @@
 \alias{add.alpha}
 \title{Automatically add an alpha transparency level to a color.}
 \usage{
-  add.alpha(col, alpha = 1)
+add.alpha(col, alpha = 1)
 }
 \arguments{
   \item{col}{input color vector}
@@ -10,10 +10,10 @@
   \item{alpha}{input transparency level (0 - 100)}
 }
 \value{
-  string color vector
+string color vector
 }
 \description{
-  Automatically add an alpha transparency level to a color.
+Automatically add an alpha transparency level to a color.
 }
 \examples{
 x<-seq(0,100)
@@ -24,7 +24,7 @@ alpha.cols<-add.alpha(cols,0.5)
 plot(y~x,col=alpha.cols,pch=19,cex=5)
 }
 \seealso{
-  \code{\link{nchar}} which this function wraps
+\code{\link{nchar}} which this function wraps
 }
 \keyword{alpha}
 \keyword{color}

@@ -2,7 +2,7 @@
 \alias{mvfrontier}
 \title{Function for calcualting Mean Variance frontier}
 \usage{
-  mvfrontier(risk_levels, aaf, retvec, covmat, ...)
+mvfrontier(risk_levels, aaf, retvec, covmat, ...)
 }
 \arguments{
   \item{risk_levels}{A vector of numeric risk levels, from
@@ -18,16 +18,16 @@
   \item{covmat}{The covariance matrix}
 }
 \value{
-  A summary matrix of expected return, portfolio
-  volatility, and var5/10/15 for each portfolio
+A summary matrix of expected return, portfolio volatility,
+and var5/10/15 for each portfolio
 }
 \description{
-  Function for calcualting Mean Variance frontier
+Function for calcualting Mean Variance frontier
 }
 \note{
-  Note: This is really only useful in specific cases where
-  you can specify the asset allocation by risk level ahead
-  of time. Very dependendent upon that coding.
+Note: This is really only useful in specific cases where
+you can specify the asset allocation by risk level ahead of
+time. Very dependendent upon that coding.
 }
 \examples{
 risk_levels<-seq(0,1,0.1) #Risk Levels
@@ -48,7 +48,7 @@ covmat<-vols * cormat * vols
 mvfrontier(risk_levels,aaf="aaf_v1",retvec=rets,covmat=covmat)
 }
 \seealso{
-  nothing
+nothing
 }
 \keyword{finance,}
 \keyword{functions,}

@@ -2,7 +2,7 @@
 \alias{mvstats}
 \title{Function for calcualting Mean Variance statistics}
 \usage{
-  mvstats(aa, retvec, covmat)
+mvstats(aa, retvec, covmat)
 }
 \arguments{
   \item{aa}{The asset allocation weights}
@@ -12,11 +12,11 @@
   \item{covmat}{The covariance matrix}
 }
 \value{
-  A summary matrix of expected return, portfolio
-  volatility, and var5/10/15 for each portfolio
+A summary matrix of expected return, portfolio volatility,
+and var5/10/15 for each portfolio
 }
 \description{
-  Function for calcualting Mean Variance statistics
+Function for calcualting Mean Variance statistics
 }
 \section{Note}{
   This is really only useful in specific cases where you
@@ -32,7 +32,7 @@ covmat<-vols * cormat * vols
 mvstats(aa=alloc,retvec=rets,covmat=covmat)
 }
 \seealso{
-  nothing
+nothing
 }
 \keyword{finance,}
 \keyword{functions,}

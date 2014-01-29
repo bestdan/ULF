@@ -2,23 +2,23 @@
 \alias{matrix.flip}
 \title{Flip a matrix - rotate180, then flip. See example.}
 \usage{
-  matrix.flip(x)
+matrix.flip(x)
 }
 \arguments{
   \item{x}{The matrix to be rotated}
 }
 \value{
-  The rotated matrix
+The rotated matrix
 }
 \description{
-  Flip a matrix - rotate180, then flip. See example.
+Flip a matrix - rotate180, then flip. See example.
 }
 \examples{
 x<-matrix(seq(1,9),ncol=3)
 matrix.flip(x)
 }
 \seealso{
-  nothing
+nothing
 }
 \keyword{asset}
 \keyword{classes}

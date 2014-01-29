@@ -2,7 +2,7 @@
 \alias{mysplit}
 \title{Faster version of split}
 \usage{
-  mysplit(x, f, drop = FALSE, ...)
+mysplit(x, f, drop = FALSE, ...)
 }
 \arguments{
   \item{x}{vector or data frame containing values to be
@@ -19,23 +19,23 @@
   methods.}
 }
 \value{
-  The value returned from split is a list of vectors
-  containing the values for the groups. The components of
-  the list are named by the levels of f (after converting
-  to a factor, or if already a factor and drop = TRUE,
-  dropping unused levels). The replacement forms return
-  their right hand side. unsplit returns a vector or data
-  frame for which split(x, f) equals value
+The value returned from split is a list of vectors
+containing the values for the groups. The components of the
+list are named by the levels of f (after converting to a
+factor, or if already a factor and drop = TRUE, dropping
+unused levels). The replacement forms return their right
+hand side. unsplit returns a vector or data frame for which
+split(x, f) equals value
 }
 \description{
-  Faster version of split
+Faster version of split
 }
 \examples{
 x <- data.frame(a = 1:10, b = rep(1:2, each=5))
 splitx <- mysplit(x, x$b)
 }
 \seealso{
-  None
+None
 }
 \keyword{split}
 

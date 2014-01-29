@@ -2,23 +2,23 @@
 \alias{matrix.rotate180}
 \title{Rotate a matrix 180 degrees. See example.}
 \usage{
-  matrix.rotate180(x)
+matrix.rotate180(x)
 }
 \arguments{
   \item{x}{The matrix to be rotated}
 }
 \value{
-  The rotated matrix
+The rotated matrix
 }
 \description{
-  Rotate a matrix 180 degrees. See example.
+Rotate a matrix 180 degrees. See example.
 }
 \examples{
 x<-matrix(seq(1,9),ncol=3)
 matrix.rotate180(x)
 }
 \seealso{
-  nothing
+nothing
 }
 \keyword{asset}
 \keyword{classes}

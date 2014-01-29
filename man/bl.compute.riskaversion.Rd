@@ -2,7 +2,7 @@
 \alias{bl.compute.riskaversion}
 \title{Calculates Risk Aversion from a set of benchmark returns and a risk-free rate of return}
 \usage{
-  bl.compute.riskaversion(bench, risk.free = 0)
+bl.compute.riskaversion(bench, risk.free = 0)
 }
 \arguments{
   \item{bench}{The vector of benchmark returns}
@@ -11,11 +11,11 @@
   of return to remove from the benchmark returns}
 }
 \value{
-  risk.aversion The numeric estimate of risk aversion
+risk.aversion The numeric estimate of risk aversion
 }
 \description{
-  Calculates Risk Aversion from a set of benchmark returns
-  and a risk-free rate of return
+Calculates Risk Aversion from a set of benchmark returns
+and a risk-free rate of return
 }
 \examples{
 risky.returns<-rnorm(1000,5,sd=11)
@@ -23,7 +23,7 @@ riskfree.returns<-rnorm(1000,1,sd=1)
 bl.compute.riskaversion(risky.returns,riskfree.returns)
 }
 \seealso{
-  nothing
+nothing
 }
 \keyword{economics}
 \keyword{finance}

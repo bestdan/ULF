@@ -2,7 +2,7 @@
 \alias{rolling_cor_to_index}
 \title{Rolling correlation of a bunch of vars to an index.}
 \usage{
-  rolling_cor_to_index(rets, window)
+rolling_cor_to_index(rets, window)
 }
 \arguments{
   \item{rets}{Vector of data for the correlation to be
@@ -12,11 +12,11 @@
   observed over.}
 }
 \value{
-  A matrix of correlations
+A matrix of correlations
 }
 \description{
-  Calculates rolling correlations over the specified
-  window, where the first column is the index.
+Calculates rolling correlations over the specified window,
+where the first column is the index.
 }
 \examples{
 obs<-20
@@ -27,7 +27,7 @@ these.cors<-cbind(seq(1,obs),rolling_cor_to_index(rets,2))
 plot_lines(these.cors)
 }
 \seealso{
-  Nothing.
+Nothing.
 }
 \keyword{annualize,}
 \keyword{convenience}

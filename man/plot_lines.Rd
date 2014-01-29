@@ -2,7 +2,7 @@
 \alias{plot_lines}
 \title{Plot all observations as lines against index. The first column is the index.}
 \usage{
-  plot_lines(mat, thisColors = NULL, ...)
+plot_lines(mat, thisColors = NULL, ...)
 }
 \arguments{
   \item{mat}{matrix or dataframe of data to plot}
@@ -12,11 +12,11 @@
   \item{...}{Further plotting parameters, e.g. col}
 }
 \value{
-  A plot
+A plot
 }
 \description{
-  Plot all observations as lines against index. The first
-  column is the index.
+Plot all observations as lines against index. The first
+column is the index.
 }
 \examples{
 obs<-20
@@ -31,7 +31,7 @@ obs<-20
  plot_lines(cbind(index,rets))
 }
 \seealso{
-  Nothing.
+Nothing.
 }
 \keyword{annualize,}
 \keyword{convenience}

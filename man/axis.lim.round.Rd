@@ -2,7 +2,7 @@
 \alias{axis.lim.round}
 \title{Round a number for use in nice axes labels & spacing}
 \usage{
-  axis.lim.round(x, direction = "up")
+axis.lim.round(x, direction = "up")
 }
 \arguments{
   \item{x}{The number to be "nicified" for axes.}
@@ -11,11 +11,11 @@
   (max), or down(min)}
 }
 \value{
-  Another number
+Another number
 }
 \description{
-  This function is useful for taking a max number from
-  data, and converting to a "nice" round number.
+This function is useful for taking a max number from data,
+and converting to a "nice" round number.
 }
 \examples{
 this.seq<- pi^seq(1,10,0.2)
@@ -27,7 +27,7 @@ lines(up~seq(1,length(this.seq)),col="green")
 lines(down~seq(1,length(this.seq)),col="red")
 }
 \seealso{
-  Nothing.
+Nothing.
 }
 \keyword{annualize,}
 \keyword{convenience}

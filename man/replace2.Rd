@@ -2,7 +2,7 @@
 \alias{replace2}
 \title{Replace a set of old things with new things. :)}
 \usage{
-  replace2(x, old, new)
+replace2(x, old, new)
 }
 \arguments{
   \item{x}{Input object}
@@ -13,16 +13,16 @@
   things}
 }
 \value{
-  value A version of X with all olds replaced by news
+value A version of X with all olds replaced by news
 }
 \description{
-  Automatically add an alpha transparency level to a color.
+Automatically add an alpha transparency level to a color.
 }
 \examples{
 replace2(LETTERS,old=c("A","C","E"),new=seq(1,3))
 }
 \seealso{
-  \code{\link{is.character}} which this function wraps
+\code{\link{is.character}} which this function wraps
 }
 \keyword{alpha}
 \keyword{color}

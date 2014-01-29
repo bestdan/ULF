@@ -2,7 +2,7 @@
 \alias{rolling_return}
 \title{Rolling correlation of a bunch of vars to an index.}
 \usage{
-  rolling_return(rets, this.window, ret.period = 252)
+rolling_return(rets, this.window, ret.period = 252)
 }
 \arguments{
   \item{rets}{Vector of returns for the form 1.05 for a 5
@@ -15,12 +15,12 @@
   return is calculated over daily=365, monthly=12, etc..}
 }
 \value{
-  A matrix of correlations
+A matrix of correlations
 }
 \description{
-  Calculates rolling geometric average returns over the
-  specified window. Note, this is not straight cumulative,
-  but average cumulative.
+Calculates rolling geometric average returns over the
+specified window. Note, this is not straight cumulative,
+but average cumulative.
 }
 \examples{
 #rets<-c(1,seq(.7,1.4,.05))
@@ -29,7 +29,7 @@
 #rolling_return(rets,2,12)
 }
 \seealso{
-  Nothing.
+Nothing.
 }
 \keyword{annualize,}
 \keyword{convenience}

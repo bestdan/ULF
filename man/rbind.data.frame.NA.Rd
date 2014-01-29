@@ -2,17 +2,17 @@
 \alias{rbind.data.frame.NA}
 \title{Binds rows/columns of dataframes which do not have perfectly overlapping row/column names/sizes.}
 \usage{
-  rbind.data.frame.NA(...)
+rbind.data.frame.NA(...)
 }
 \arguments{
   \item{...}{A set of data frames to be combined}
 }
 \value{
-  A dataframe
+A dataframe
 }
 \description{
-  Binds rows/columns of dataframes which do not have
-  perfectly overlapping row/column names/sizes.
+Binds rows/columns of dataframes which do not have
+perfectly overlapping row/column names/sizes.
 }
 \examples{
 obs<-20
@@ -22,7 +22,7 @@ dfz<- rbind.data.frame.NA(dfx,dfy)
 dfz
 }
 \seealso{
-  Nothing.
+Nothing.
 }
 \keyword{annualize,}
 \keyword{convenience}
