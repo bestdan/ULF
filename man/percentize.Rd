@@ -2,28 +2,35 @@
 \alias{percentize}
 \title{Create percent labels based on a numeric vector}
 \usage{
-percentize(x, rounder = 2)
+percentize(x, rounder = 0, trailing = 0)
 }
 \arguments{
   \item{x}{A numeric vector.}
 
   \item{rounder}{The number of places to round to, before
   creating the percent.}
+
+  \item{trailing}{How many places should be shown, after
+  the decimal. For 0.XX\%, choose 2.}
 }
 \value{
-A summary matrix of expected return, portfolio volatility,
-and var5/10/15 for each portfolio
+\code{string} A correctly formated number.
 }
 \description{
 Create percent labels based on a numeric vector
 }
 \examples{
-percentize(0.015565)
-percentize(0.015565, rounder=5)
+percentize(0.015565)  # Should be 2\%
+percentize(0.015565, rounder=1) # Should be 1.6\%
+percentize(0.015565, rounder=1, trailing=2) # Should be 1.60\%
+percentize(0.0045, rounder=1)
+percentize(0.0045, rounder=2)
+percentize(0.0004, rounder=3, trailing=2)
 }
 \seealso{
-nothing
+round2
 }
+\keyword{ULF}
 \keyword{functions,}
 \keyword{labels,}
 \keyword{little}
