@@ -1,0 +1,21 @@
+\name{unpackEllipse}
+\alias{unpackEllipse}
+\title{Unpack arguments from ellipse}
+\usage{
+unpackEllipse(params)
+}
+\arguments{
+  \item{params}{An ellipse style parameters}
+}
+\value{
+contents of ellipses as objects to higher environment.
+}
+\description{
+A convenience function for unpacking the contents of
+ellipses in a function input. Writes the ellipses to the
+higher environment.
+}
+\examples{
+print("hello")
+}
+
