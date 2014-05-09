@@ -11,7 +11,8 @@
 #' dollar(10^seq(1,10),fixed=TRUE)
 
 
-dollar<-function(x, fixed=FALSE){
+dollar<-function(x, fixed=FALSE, rounder=2){
+  x<- round(x, rounder)
   if (fixed==TRUE) {
     return(paste("$",prettyNum(x,big.mark=",",preserve.width="common"),sep=""))  
   } else {
