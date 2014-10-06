@@ -3,7 +3,7 @@
 \alias{dollar}
 \title{Format numbers as dollars, i.e. adding commas and $ signs}
 \usage{
-dollar(x, fixed = FALSE)
+dollar(x, fixed = FALSE, rounder = 2)
 }
 \arguments{
 \item{x}{numeric vector to be converted to dollars}
