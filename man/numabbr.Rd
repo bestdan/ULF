@@ -15,9 +15,9 @@ string Vector of formatted strings
 Abbreviate numbers
 }
 \examples{
-options(scipen=10)
-x<- 10^seq(1,10)*1.3
-unlist(sapply(x, numabbr))
+options(scipen=20)
+x<- 10^seq(1,11)*4
+cbind(formatC(x,big.mark = ",",format = "f", digits=0), unlist(sapply(x, numabbr)))
 }
 \seealso{
 \code{\link{nchar}} which this function wraps
