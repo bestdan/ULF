@@ -3,24 +3,24 @@
 \alias{numabbr}
 \title{Abbreviate numbers}
 \usage{
-numabbr(x)
+numabbr(x, r = 2)
 }
 \arguments{
 \item{x}{numeric vector to be converted to dollars}
+
+\item{r}{Number of digits after the decimal to round to.}
 }
 \value{
-string Vector of formatted strings
+string Vector of formatted strings with abbreviations.
 }
 \description{
 Abbreviate numbers
 }
 \examples{
 options(scipen=20)
-x<- 10^seq(1,11)*4
+x<- 10^seq(1,11)*4.567
 cbind(formatC(x,big.mark = ",",format = "f", digits=0), unlist(sapply(x, numabbr)))
-}
-\seealso{
-\code{\link{nchar}} which this function wraps
+cbind(formatC(x,big.mark = ",",format = "f", digits=0), unlist(sapply(x, function(x) numabbr(x, r=0))))
 }
 \keyword{economics}
 \keyword{finance}
