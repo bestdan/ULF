@@ -36,6 +36,7 @@
 
 
 XgetSymbols <- function(symbol, start_date, end_date = as.character(Sys.Date()), adjtype, quotetype = "LastClose", token = "NA", ShowURL = FALSE) {
+  
   library(xts)
   
   # Check for xignite token existence
@@ -69,7 +70,7 @@ XgetSymbols <- function(symbol, start_date, end_date = as.character(Sys.Date()),
   }
   
   # Debug element for request URL
-  if (ShowURL==TRUE) {
+  if (ShowURL == TRUE) {
     print(this.url)
   }
   
