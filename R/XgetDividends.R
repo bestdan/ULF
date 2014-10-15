@@ -7,7 +7,7 @@
 #' @param ShowURL Should the XIgnite API ULR be shown (helps with debugging)
 #' @return An xts object of date and dividends
 #' @keywords finance portfolio annualize convenience
-#' @import timeSeries
+#' @import xts
 #' @seealso Nothing. 
 #' @export
 #' @examples
