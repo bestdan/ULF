@@ -5,7 +5,7 @@
 #' @param ShowURL Should the XIgnite API ULR be shown (helps with debugging)
 #' @return A dataframe of date and values
 #' @export
-#' @import timeSeries yaml
+#' @import yaml
 #' @examples
 #' # Note: no examples will work without a token. 
 #' \dontrun{

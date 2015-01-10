@@ -9,7 +9,6 @@
 #' @return An xts object of date and dividends
 #' @keywords finance portfolio annualize convenience
 #' @import xts yaml
-#' @seealso Nothing. 
 #' @export
 #' @examples
 #' # Note: No examples will work without a valid token. 
@@ -18,8 +17,6 @@
 #'    YAMLfile = "~/Documents/Betterment/credentials//XIgniteCredentials.yaml")
 #' head(data,20)
 #' }
-
-
 
 XgetDividends<-function(symbol,
                         start_date,end_date=as.character(Sys.Date()),
@@ -65,6 +62,6 @@ XgetDividends<-function(symbol,
   
   # Format results
   names(result) <- symbol
-  
+
   return(result)
 }

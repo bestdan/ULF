@@ -49,7 +49,6 @@ XgetSymbols<-function(symbol,
                       YAMLfile=NULL,
                       token=NULL, ShowURL=FALSE) {
 
-
   if(is.null(YAMLfile) & is.null(token)) {
     stop("Need to supply eitehr YAMLfile or token.")
   }
@@ -65,7 +64,6 @@ XgetSymbols<-function(symbol,
     stop("Token does not appear to be valid.")
   }
   
-
   # Check for adjustment type
   if (adjtype %in% c("None","SplitOnly", "CashDividendOnly", "SplitAndProportionalCashDividend", "SplitAndCashDividend", "All") == FALSE) {
     stop("Incorrect adjtype input. Fail.")
