@@ -10,5 +10,5 @@ Description: A set of convenience functions for doing analysis & data
 License: GPL
 Depends:
     fBasics,
-    timeSeries,
+    xts,
     yaml
