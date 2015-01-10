@@ -28,10 +28,11 @@
 #' @param YAMLfile A locally held yaml file with XIgnite Credentials. 
 #' @param token Your XIgnite API Token  
 #' @param ShowURL Should the XIgnite API ULR be shown (helps with debugging)
-#' @return A dataframe of date and values
-#' @keywords XIgnite 
+#' @return An xts object of date and values
+#' @keywords finance, portfolio, annualize, convenience
+#' @seealso Nothing. 
 #' @export
-#' @import timeSeries yaml
+#' @import xts yaml
 #' @examples
 #' # Note: Examples will no work without a valid XIgnite token. 
 #' \dontrun{
@@ -48,6 +49,7 @@ XgetSymbols<-function(symbol,
                       YAMLfile=NULL,
                       token=NULL, ShowURL=FALSE) {
 
+
   if(is.null(YAMLfile) & is.null(token)) {
     stop("Need to supply eitehr YAMLfile or token.")
   }
@@ -63,40 +65,42 @@ XgetSymbols<-function(symbol,
     stop("Token does not appear to be valid.")
   }
   
-  # Validate AdjType
-  if (adjtype %in% c("None","SplitOnly",
-                     "CashDividendOnly","SplitAndProportionalCashDividend", "SplitAndCashDividend","All")==FALSE) {
+
+  # Check for adjustment type
+  if (adjtype %in% c("None","SplitOnly", "CashDividendOnly", "SplitAndProportionalCashDividend", "SplitAndCashDividend", "All") == FALSE) {
     stop("Incorrect adjtype input. Fail.")
   }
   
-  
-  if (quotetype %in% c("Last","Open","High","Low","Volume","LastClose","ChangeFromOpen",
-                     "PercentChangeFromOpen","ChangeFromLastClose","PercentChangeFromLastClose")==FALSE) {
+  # Check for ticker quote type
+  if (quotetype %in% c("Last", "Open", "High", "Low", "Volume", "LastClose", "ChangeFromOpen", "PercentChangeFromOpen", "ChangeFromLastClose", "PercentChangeFromLastClose") == FALSE) {
     stop("Incorrect quotetype input. Fail.")
-    
   }
   
-  start_date<- as.numeric(unlist(strsplit(start_date,"-")))
-  start_date<- paste(start_date[2],start_date[3],start_date[1],sep="/")
-  end_date<- as.numeric(unlist(strsplit(end_date,"-")))
-  end_date<- paste(end_date[2],end_date[3],end_date[1],sep="/")
+  # Convert dates to xignite ready format
+  start_date <- as.character(as.Date(start_date, format = '%Y-%m-%d'), format = "%m/%d/%Y")
+  end_date   <- as.character(as.Date(end_date, format = '%Y-%m-%d'), format = "%m/%d/%Y")
   
-  # Note that date_format= "5/23/2000" 
-  this.url<-paste0("http://www.xignite.com/xGlobalHistorical.csv/GetGlobalHistoricalQuotesRange?Identifier=",symbol,
-                   "&IdentifierType=Symbol&AdjustmentMethod=",adjtype,"&StartDate=",start_date,"&EndDate=",end_date,
-                   "&_DownloadFile=true&_fields=GlobalQuotes.Date,","GlobalQuotes.",quotetype,"&_csvflatten=true")
-  if(token!="NA") this.url<-paste0(this.url,"&_Token=",token)
+  # Build the request string
+  # Note that date_format = "5/23/2000" 
+  this.url <- paste0("http://www.xignite.com/xGlobalHistorical.csv/GetGlobalHistoricalQuotesRange?Identifier=", symbol,
+                   "&IdentifierType=Symbol&AdjustmentMethod=", adjtype, "&StartDate=", start_date, "&EndDate=", end_date,
+                   "&_DownloadFile=true&_fields=GlobalQuotes.Date,", "GlobalQuotes.", quotetype, "&_csvflatten=true")
   
-  if (ShowURL==TRUE) print(this.url)
+  # Check for a valid token, add it to the request string
+  if(token != "NA") {
+    this.url <- paste0(this.url, "&_Token=", token)
+  }
   
-  result<-read.csv(this.url)
+  # Debug element for request URL
+  if (ShowURL == TRUE) {
+    print(this.url)
+  }
   
-  names(result)<-c("Date","Value")
-  
-  result<-subset(result,Value!=0)
-  row.names(result)<-result[,1]
-  names(result)<-c("Date",symbol)
-  result<-as.timeSeries(result)
+  # Execute request query, persist results
+  result <- as.xts(read.zoo(file = this.url, format = "%m/%d/%Y", sep = ",", header = T))
+
+  # Format results
+  names(result) <- symbol
   
   return(result)
 }
