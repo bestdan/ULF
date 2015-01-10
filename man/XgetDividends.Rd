@@ -20,7 +20,7 @@ XgetDividends(symbol, start_date, end_date = as.character(Sys.Date()),
 \item{ShowURL}{Should the XIgnite API ULR be shown (helps with debugging)}
 }
 \value{
-A dataframe of date and dividends
+An xts object of date and dividends
 }
 \description{
 Get prices & returns from XIgnite API
@@ -35,9 +35,6 @@ head(data,20)
 }
 \author{
 Daniel Egan
-}
-\seealso{
-Nothing.
 }
 \keyword{annualize}
 \keyword{convenience}

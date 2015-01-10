@@ -45,7 +45,7 @@ XgetSymbols(symbol, start_date, end_date = as.character(Sys.Date()), adjtype,
 \item{ShowURL}{Should the XIgnite API ULR be shown (helps with debugging)}
 }
 \value{
-A dataframe of date and values
+An xts object of date and values
 }
 \description{
 Get prices & returns from XIgnite API
@@ -61,5 +61,11 @@ head(data,20)
 \author{
 Daniel Egan
 }
-\keyword{XIgnite}
+\seealso{
+Nothing.
+}
+\keyword{annualize,}
+\keyword{convenience}
+\keyword{finance,}
+\keyword{portfolio,}
 
