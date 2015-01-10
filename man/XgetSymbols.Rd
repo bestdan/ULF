@@ -4,7 +4,8 @@
 \title{Get prices & returns from XIgnite API}
 \usage{
 XgetSymbols(symbol, start_date, end_date = as.character(Sys.Date()), adjtype,
-  quotetype = "LastClose", token = "NA", ShowURL = FALSE)
+  quotetype = "LastClose", YAMLfile = NULL, token = NULL,
+  ShowURL = FALSE)
 }
 \arguments{
 \item{symbol}{The symbol to be queries}
@@ -14,24 +15,30 @@ XgetSymbols(symbol, start_date, end_date = as.character(Sys.Date()), adjtype,
 \item{end_date}{The end of the historical date range. Defaults to today.}
 
 \item{adjtype}{The type of adjustment, if any, to be made. Potentially
-"None",
-"SplitOnly",
-"CashDividendOnly",
-"SplitAndProportionalCashDividend",
-"SplitAndCashDividend",
-"All"}
+\itemize{
+  \item{None}
+  \item{SplitOnly}
+  \item{CashDividendOnly}
+  \item{SplitAndProportionalCashDividend}
+  \item{SplitAndProportionalCashDividend}
+  \item{SplitAndCashDividend}
+  \item{All}
+}}
 
-\item{quotetype}{The type of data to be returns. Options are
-Last,
-Open,
-High,
-Low,
-Volume,
-LastClose (the default),
-ChangeFromOpen,
-PercentChangeFromOpen,
-ChangeFromLastClose,
-PercentChangeFromLastClose,}
+\item{quotetype}{The type of data to be returns. Options are:
+\itemize{
+  \item{Last}
+  \item{Open}
+  \item{High}
+  \item{Low}
+  \item{Volume}
+  \item{Close (the default)}
+  \item{PercentChangeFromOpen}
+  \item{ChangeFromLastClose}
+  \item{PercentChangeFromLastClose}
+}}
+
+\item{YAMLfile}{A locally held yaml file with XIgnite Credentials.}
 
 \item{token}{Your XIgnite API Token}
 
@@ -44,15 +51,15 @@ A dataframe of date and values
 Get prices & returns from XIgnite API
 }
 \examples{
-# Note: no examples will work without a token.
-# data<-XgetSymbols("EEM", start_date="2013-01-01", adjtype="SplitOnly")
-# head(data,20)
+# Note: Examples will no work without a valid XIgnite token.
+\dontrun{
+data<-XgetSymbols("EEM", start_date="2013-01-01", adjtype="SplitOnly",
+   YAMLfile = "~/Documents/Betterment/credentials/XIgniteCredentials.yaml")
+head(data,20)
 }
-\seealso{
-Nothing.
 }
-\keyword{annualize,}
-\keyword{convenience}
-\keyword{finance,}
-\keyword{portfolio,}
+\author{
+Daniel Egan
+}
+\keyword{XIgnite}
 
