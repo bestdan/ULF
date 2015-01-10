@@ -8,7 +8,8 @@
 #' options(scipen=20)
 #' x<- 10^seq(1,11)*4.567
 #' cbind(formatC(x,big.mark = ",",format = "f", digits=0), unlist(sapply(x, numabbr)))
-#' cbind(formatC(x,big.mark = ",",format = "f", digits=0), unlist(sapply(x, function(x) numabbr(x, r=0))))
+#' cbind(formatC(x,big.mark = ",",format = "f", digits=0), unlist(sapply(x, function(x) 
+#'   numabbr(x, r=0))))
 
 
 numabbr<- function(x,r=2) {

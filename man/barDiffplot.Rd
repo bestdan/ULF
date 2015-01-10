@@ -3,13 +3,17 @@
 \alias{barDiffplot}
 \title{A barplot showing differences}
 \usage{
-barDiffplot(data, cols = c("red", "green", "dark green", space = 0, border =
-  NA))
+barDiffplot(data, cols = c("red", "green", "dark green"), tspace = 0,
+  tborder = NA)
 }
 \arguments{
 \item{data}{A matrix with series in rows, and observations in columns.}
 
 \item{cols}{The plot color for when row 1 is greater than row 2, when row 2 is greater than row 1, and the minimum baseline between them.}
+
+\item{tspace}{The space between bars}
+
+\item{tborder}{The border color.}
 }
 \value{
 A plot
@@ -20,13 +24,7 @@ A matched barplot with values overlaid, and differences higlighted
 \examples{
 data<- data.frame(x=seq(100,10,-10), y=seq(10,100,10))
 data<- t(data)
-barplot(data)
+barDiffplot(data)
+barDiffplot(data, tspace=1, tborder="black")
 }
-\seealso{
-Nothing.
-}
-\keyword{annualize,}
-\keyword{convenience}
-\keyword{finance,}
-\keyword{portfolio,}
 

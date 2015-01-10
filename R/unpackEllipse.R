@@ -11,7 +11,7 @@ unpackEllipse <- function(params){
      #params <- as.list(substitute(list(x)))[-1L]
      if(length(params)>0) {
      for (i in 1:length(params)) {
-       assign(names(params)[i],value=params[i],pos=1)
+       assign(names(params)[i],value=params[i])
      }
    }
 }
