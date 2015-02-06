@@ -12,10 +12,10 @@
 #' thisData<- data.frame(name=LETTERS[1:10], number=seq(1,10), othername=LETTERS[6:15], stringsAsFactors=FALSE)
 #' thisData
 #' lookup("F", thisData)
-#' lookup("U", thisData, searchColumns="name")
-#' lookup("U", thisData, searchColumns="othername")
-#' lookup("U", thisData, searchColumns="othername", outputColumn="name")
-#' lookup("U", thisData, searchColumns=3, outputColumn=1)
+#' lookup("K", thisData, searchColumns="name")
+#' lookup("K", thisData, searchColumns="othername")
+#' lookup("K", thisData, searchColumns="othername", outputColumn="name")
+#' lookup("K", thisData, searchColumns=3, outputColumn=1)
 
 
 lookup<- function(term,idata,searchColumns="all",searchRows="all", outputColumns="all",outputRows="all") {
@@ -24,24 +24,29 @@ lookup<- function(term,idata,searchColumns="all",searchRows="all", outputColumns
     idata<- idata[searchRows,]
   }
   
-  if(searchColumns !="all") {
-    idata<- idata[,searchColumns]
+  if(searchColumns =="all") {
+    searchColumns<- seq(1,ncol(idata))
   }
   
-  matchingCells <- which(idata ==term, arr.ind = TRUE)
+  matchingCells <- which(idata[,searchColumns] ==term, arr.ind = TRUE)
+  
+  if(length(matchingCells)<1) {
+    return(NULL)
+  }
+  
+  if(is.null(dim(matchingCells))) {
+    idata<- idata[matchingCells[1],]  
+  } else {
+    idata<- idata[matchingCells[,1],]  
+  }
   
   
   if(outputColumns=="all") {
     outputColumns<- seq(1,ncol(idata))
   }
   
-  if(outputRows=="all") {
-    outputRows<- seq(1,nrow(idata))
-  }
+  idata <- idata[,outputColumns]
   
-  idata <- idata[outputRows,outputColumns]
-  
-  idata<- idata[,matchingCells[,2] ]
   if(length(idata)<1) return(NULL)
   
   return(idata)
