@@ -28,6 +28,9 @@ annualize(5,12,"c","c")
 annualize(5,12,"c","a")
 annualize(5,12,"c","b")
 }
+\author{
+Daniel Egan
+}
 \seealso{
 \code{\link{gsub}}
 }

@@ -1,4 +1,5 @@
-#' Annualize, or actually change to any period, returns data. 
+#' @title Annualize, or actually change to any period, returns data. 
+#' @author Daniel Egan
 #' @description This function takes a return of a given formated input, and modifies the period it is expressed over. This does not only annualize, but can also monthly-ize, daily-ize, etc. .
 #' @param ret Vector of returns
 #' @param period At the data level, how many periods are there per year? For example, monthly data=12, trading days ~=252. 5 years=1/5

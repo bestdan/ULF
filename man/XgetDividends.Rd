@@ -5,7 +5,7 @@
 \title{Get prices & returns from XIgnite API}
 \usage{
 XgetDividends(symbol, start_date, end_date = as.character(Sys.Date()),
-  token = "NA", ShowURL = FALSE)
+  YAMLfile = NULL, token = NULL, ShowURL = FALSE)
 }
 \arguments{
 \item{symbol}{The symbol to be queries}
@@ -14,23 +14,28 @@ XgetDividends(symbol, start_date, end_date = as.character(Sys.Date()),
 
 \item{end_date}{The end of the historical date range. Defaults to today.}
 
+\item{YAMLfile}{A locally held yaml file with XIgnite Credentials.}
+
 \item{token}{Your API Token}
 
 \item{ShowURL}{Should the XIgnite API ULR be shown (helps with debugging)}
 }
 \value{
-A dataframe of date and dividends
+An xts object of date and dividends
 }
 \description{
 Get prices & returns from XIgnite API
 }
 \examples{
 # Note: No examples will work without a valid token.
-# data<-XgetDividends("AGG","2004-01-01")
-# head(data,20)
+\dontrun{
+data<-XgetDividends("AGG","2004-01-01",
+   YAMLfile = "~/Documents/Betterment/credentials//XIgniteCredentials.yaml")
+head(data,20)
 }
-\seealso{
-Nothing.
+}
+\author{
+Daniel Egan
 }
 \keyword{annualize}
 \keyword{convenience}

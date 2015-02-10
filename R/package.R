@@ -46,6 +46,7 @@ package <- function(pkgs, install=TRUE, update=FALSE, quiet=TRUE, verbose=TRUE, 
     }
     return(result)
   }
+  
   mymessage <- function(msg) {
     if(verbose) {
       message(msg)

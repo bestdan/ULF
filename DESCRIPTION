@@ -1,8 +1,8 @@
 Package: ULF
 Type: Package
 Title: Useful Little Functions
-Version: 2.0
-Date: 2013-05-01
+Version: 3.0
+Date: 2015-01-10
 Author: Daniel P. Egan <dp.egan@gmail.com>
 Maintainer: Daniel P. Egan <dp.egan@gmail.com>
 Description: A set of convenience functions for doing analysis & data
@@ -10,4 +10,5 @@ Description: A set of convenience functions for doing analysis & data
 License: GPL
 Depends:
     fBasics,
-    timeSeries
+    xts,
+    yaml
