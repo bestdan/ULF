@@ -23,13 +23,16 @@ All matching rows and columns.
 Searches a data frame or matrix for a specific term, and returns all matching instances.
 }
 \examples{
-thisData<- data.frame(name=LETTERS[1:10], number=seq(1,10), othername=LETTERS[6:15], stringsAsFactors=FALSE)
+thisData<- data.frame(name=LETTERS[1:10], number=seq(1,10), othername=LETTERS[6:15],
+  dates=seq(from=as.Date("2000-01-01"), by=1, length.out=10), stringsAsFactors=FALSE)
+str(thisData)
 thisData
 lookup("F", thisData)
 lookup("K", thisData, searchColumns="name")
 lookup("K", thisData, searchColumns="othername")
 lookup("K", thisData, searchColumns="othername", outputColumn="name")
 lookup("K", thisData, searchColumns=3, outputColumn=1)
+lookup(as.Date("2000-01-01"), thisData)
 }
 \author{
 Daniel Egan

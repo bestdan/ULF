@@ -9,16 +9,29 @@
 #' @return All matching rows and columns.
 #' @export
 #' @examples
-#' thisData<- data.frame(name=LETTERS[1:10], number=seq(1,10), othername=LETTERS[6:15], stringsAsFactors=FALSE)
+#' thisData<- data.frame(name=LETTERS[1:10], number=seq(1,10), othername=LETTERS[6:15], 
+#'   dates=seq(from=as.Date("2000-01-01"), by=1, length.out=10), stringsAsFactors=FALSE)
+#' str(thisData)
 #' thisData
 #' lookup("F", thisData)
 #' lookup("K", thisData, searchColumns="name")
 #' lookup("K", thisData, searchColumns="othername")
 #' lookup("K", thisData, searchColumns="othername", outputColumn="name")
 #' lookup("K", thisData, searchColumns=3, outputColumn=1)
+#' lookup(as.Date("2000-01-01"), thisData)
 
 
 lookup<- function(term,idata,searchColumns="all",searchRows="all", outputColumns="all",outputRows="all") {
+  
+  if(class(term)=="Date") {
+    term<- as.character(term)
+  }
+  
+  classes<- unlist(lapply(thisData,class))
+  
+  for(var in names(classes)[classes=="Date"]){
+    idata[,var]<- as.character(idata[,var])
+  }
   
   if(searchRows !="all") {
     idata<- idata[searchRows,]
@@ -52,4 +65,6 @@ lookup<- function(term,idata,searchColumns="all",searchRows="all", outputColumns
   return(idata)
   
 }
+
+
 
