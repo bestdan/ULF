@@ -27,7 +27,7 @@ lookup<- function(term,idata,searchColumns="all",searchRows="all", outputColumns
     term<- as.character(term)
   }
   
-  classes<- unlist(lapply(thisData,class))
+  classes<- unlist(lapply(idata,class))
   
   for(var in names(classes)[classes=="Date"]){
     idata[,var]<- as.character(idata[,var])
