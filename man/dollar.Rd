@@ -23,6 +23,7 @@ Format numbers as dollars, i.e. adding commas and $ signs
 dollar(10^seq(1,10))
 dollar(10^seq(1,10),fixed=TRUE)
 dollar(10^seq(1,10),fixed=TRUE, rounder=0)
+dollar(-10^seq(1,10), rounder=0)
 }
 \author{
 Daniel Egan
