@@ -11,4 +11,5 @@ License: GPL
 Depends:
     fBasics,
     xts,
-    yaml
+    yaml, 
+    zoo
