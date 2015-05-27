@@ -9,6 +9,7 @@
 #' @return An xts object of date and dividends
 #' @keywords finance portfolio annualize convenience
 #' @import xts yaml
+#' @importFrom zoo read.zoo
 #' @export
 #' @examples
 #' # Note: No examples will work without a valid token. 
@@ -24,7 +25,7 @@ XgetDividends<-function(symbol,
                         ShowURL=FALSE) {
   
   if(is.null(YAMLfile) & is.null(token)) {
-    stop("Need to supply eitehr YAMLfile or token.")
+    stop("Need to supply either YAMLfile or token.")
   }
   
   # Grab credentials from YAML file if available

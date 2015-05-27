@@ -5,7 +5,9 @@
 #' @param term The search term of the matrix
 #' @param idata A dataframe or matrix to be searched. 
 #' @param searchColumns Optional - if you only want to find the search term in one specific column, then use this. Accepts names or numbers. 
+#' @param searchRows Optionan - If you want to search only specific rows. 
 #' @param outputColumns Optional - returns all by default, but can be subsetted. 
+#' @param outputRows Optional - returns all by default, but can be subsetted. 
 #' @return All matching rows and columns.
 #' @export
 #' @examples
@@ -21,7 +23,9 @@
 #' lookup(as.Date("2000-01-01"), thisData)
 
 
-lookup<- function(term,idata,searchColumns="all",searchRows="all", outputColumns="all",outputRows="all") {
+lookup<- function(term, idata, 
+                  searchColumns="all", searchRows="all", 
+                  outputColumns="all", outputRows="all") {
   
   if(class(term)=="Date") {
     term<- as.character(term)
