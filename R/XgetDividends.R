@@ -8,7 +8,8 @@
 #' @param ShowURL Should the XIgnite API ULR be shown (helps with debugging)
 #' @return An xts object of date and dividends
 #' @keywords finance portfolio annualize convenience
-#' @import xts yaml
+#' @importFrom xts as.xts
+#' @importFrom yaml yaml.load_file
 #' @export
 #' @examples
 #' # Note: No examples will work without a valid token. 

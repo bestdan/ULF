@@ -32,7 +32,8 @@
 #' @keywords finance, portfolio, annualize, convenience
 #' @seealso Nothing. 
 #' @export
-#' @import xts yaml
+#' @importFrom xts as.xts
+#' @importFrom yaml yaml.load_file
 #' @examples
 #' # Note: Examples will no work without a valid XIgnite token. 
 #' \dontrun{
