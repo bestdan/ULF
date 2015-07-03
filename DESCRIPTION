@@ -12,5 +12,4 @@ Depends:
     xts,
     yaml,
     Hmisc,
-    yaml, 
     zoo

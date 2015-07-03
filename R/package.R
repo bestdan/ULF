@@ -36,23 +36,6 @@
 
  
 package <- function(pkgs, install=TRUE, update=FALSE, quiet=TRUE, verbose=TRUE, ...) {
-  
-  myrequire <- function(package, ...) {
-    result <- FALSE
-    if(quiet) { 
-      suppressMessages(suppressWarnings(result <- require(package, ...)))
-    } else {
-      result <- suppressWarnings(require(package, ...))
-    }
-    return(result)
-  }
-  
-  mymessage <- function(msg) {
-    if(verbose) {
-      message(msg)
-    }
-  }
-  
   installedpkgs <- installed.packages()
   availpkgs <- available.packages(...)[,c('Package','Version')]
   if(nrow(availpkgs) == 0) {
@@ -114,4 +97,22 @@ package <- function(pkgs, install=TRUE, update=FALSE, quiet=TRUE, verbose=TRUE, 
   } else {
     invisible(results)
   }
+  
 }
+
+myrequire <- function(package, ...) {
+  result <- FALSE
+  if(quiet) { 
+    suppressMessages(suppressWarnings(result <- require(package, ...)))
+  } else {
+    result <- suppressWarnings(require(package, ...))
+  }
+  return(result)
+}
+
+mymessage <- function(msg) {
+  if(verbose) {
+    message(msg)
+  }
+}
+
