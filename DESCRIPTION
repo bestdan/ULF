@@ -9,6 +9,6 @@ Description: A set of convenience functions for doing analysis & data
     management in R.
 License: GPL
 Depends:
-    fBasics,
     xts,
-    yaml
+    yaml,
+    Hmisc

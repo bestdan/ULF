@@ -20,9 +20,8 @@ Returns a named list automatically, rather than losing the names like 'list' doe
 \examples{
 a <- 1:3
 b <- 4:6
-label(b) <- 'B Label'
-llist(a,b)
-llist(a,b,d=0)
+nlist(a,b)
+nlist(a,b,d=0)
 llist(a,b,0)
 }
 \author{

@@ -6,12 +6,13 @@
 #' @param labels TRUE by default. 
 #' @return List, consisting of the named version of variables. 
 #' @keywords tax capitalgains tlh
+#' @export
+#' @importFrom Hmisc label
 #' @examples
 #' a <- 1:3 
 #' b <- 4:6
-#' label(b) <- 'B Label'
-#' llist(a,b)
-#' llist(a,b,d=0)
+#' nlist(a,b)
+#' nlist(a,b,d=0)
 #' llist(a,b,0)
 
 nlist<- function (..., labels = TRUE) {
