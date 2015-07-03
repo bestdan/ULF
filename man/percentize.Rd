@@ -26,6 +26,7 @@ percentize(0.015565, rounder=1, trailing=2) # Should be 1.60\%
 percentize(0.0045, rounder=1)
 percentize(0.0045, rounder=2)
 percentize(0.0004, rounder=3, trailing=2)
+percentize(c(.1, NA, .2))
 }
 \seealso{
 round2

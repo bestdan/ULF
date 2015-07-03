@@ -20,7 +20,7 @@ A new object with updated names
 Replaces the object \code{oldName} with \code{newName}
 }
 \examples{
-thisDF<- data.frame("A" = c(1,2,3), "B"=(3,4,5))
+thisDF<- data.frame("A" = c(1,2,3), "B"=c(3,4,5))
 replaceName(thisDF, "A","C")
 }
 \author{

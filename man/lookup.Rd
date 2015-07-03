@@ -14,7 +14,11 @@ lookup(term, idata, searchColumns = "all", searchRows = "all",
 
 \item{searchColumns}{Optional - if you only want to find the search term in one specific column, then use this. Accepts names or numbers.}
 
+\item{searchRows}{Optionan - If you want to search only specific rows.}
+
 \item{outputColumns}{Optional - returns all by default, but can be subsetted.}
+
+\item{outputRows}{Optional - returns all by default, but can be subsetted.}
 }
 \value{
 All matching rows and columns.

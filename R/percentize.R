@@ -15,12 +15,15 @@
 #' percentize(0.0045, rounder=1)
 #' percentize(0.0045, rounder=2)
 #' percentize(0.0004, rounder=3, trailing=2)
+#' percentize(c(.1, NA, .2))
 
 
 percentize<-function(x,rounder=0, trailing=0) {
+  nullVec<- is.na(x) | is.null(x)
   x <- as.numeric(prettyNum(round(x*100,rounder+1), digits=max(0,(rounder+1))))
   x <- formatC(x, digits=max(rounder,trailing), format="f")
   y <- paste0(x,"%")
+  y[nullVec]<- ""
   return(y)
 }
 

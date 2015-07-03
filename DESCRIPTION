@@ -11,4 +11,6 @@ License: GPL
 Depends:
     xts,
     yaml,
-    Hmisc
+    Hmisc,
+    yaml, 
+    zoo
