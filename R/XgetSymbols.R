@@ -33,6 +33,7 @@
 #' @seealso Nothing. 
 #' @export
 #' @importFrom xts as.xts
+#' @importFrom zoo read.zoo
 #' @importFrom yaml yaml.load_file
 #' @examples
 #' # Note: Examples will no work without a valid XIgnite token. 
