@@ -29,7 +29,7 @@ nlist<- function (..., labels = TRUE) {
       if (length(lab) == 0) 
         lab <- vname[i]
     }
-    label(dotlist[[i]]) <- lab
+    Hmisc::label(dotlist[[i]]) <- lab
   }
   names(dotlist) <- vname[1:length(dotlist)]
   return(dotlist)
