@@ -28,8 +28,7 @@ unpackVars<- function(vars, varlist=NULL){
     if(!is.null(varlist)) {
       if(names(vars[i]) %in% varlist == FALSE) next  
     }
-    assign(names(vars[i]), value=unlist(vars[i][1]), pos = 1)  
+    assign(names(vars[i]), value=unlist(vars[i][1]), envir = parent.frame() )  
   }
   
 }
-
