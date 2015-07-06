@@ -4,10 +4,12 @@
 \alias{gatherVars}
 \title{Gather all variables in the environment.}
 \usage{
-gatherVars(vars = NULL)
+gatherVars(keep = NULL, exclude = NULL)
 }
 \arguments{
-\item{vars}{Optional. A set of specific vars you want to pass through.}
+\item{keep}{Optional. A set of specific vars you want to keep. Cannot specify with exclude.}
+
+\item{exclude}{Optional. A set of specific vars you want to exclude. Cannot specify with keep.}
 }
 \value{
 A list containing all the data.

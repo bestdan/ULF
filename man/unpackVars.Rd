@@ -4,12 +4,14 @@
 \alias{unpackVars}
 \title{Unpack all vars into the environment.}
 \usage{
-unpackVars(vars, varlist = NULL)
+unpackVars(vars, keep = NULL, exclude = NULL)
 }
 \arguments{
 \item{vars}{Optional. A list of variables to be unpacked.}
 
-\item{varlist}{Optional}
+\item{keep}{Optional - a vector of names of vars to \strong{keep}. Cannot be specified with 'exclude'.}
+
+\item{exclude}{Optional - a vector of names of vars to \strong{exclude}. Cannot be specified with 'keep'.}
 }
 \value{
 Nothing. Changes the environment above.
@@ -25,7 +27,7 @@ z <- 15
 
 temp<- gatherVars()
 adder<- function(stuff){
- unpackVars(stuff, varlist=c('x', 'y'))
+ unpackVars(stuff, keep=c('x', 'y'))
  if(!exists('z', inherits=FALSE )) z<- 100
  #' this shows that Z was not unpacked.
  x+y+z

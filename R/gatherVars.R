@@ -2,7 +2,8 @@
 #' @description Gathers all variables in the current environment an makes a list of them. Often used
 #' in conjunction with \code{\link{unpackVars}} to pass arguments back and forth.
 #' @author Daniel Egan
-#' @param vars Optional. A set of specific vars you want to pass through. 
+#' @param keep Optional. A set of specific vars you want to keep. Cannot specify with exclude.
+#' @param exclude Optional. A set of specific vars you want to exclude. Cannot specify with keep.
 #' @return A list containing all the data. 
 #' @export
 #' @examples
@@ -19,16 +20,27 @@
 #'   return(temp)
 #' }
 #' tryThis()
+#' 
 
-gatherVars<- function(vars=NULL){
+gatherVars<- function(keep=NULL, exclude=NULL){
   #print(ls())
   #require(ULF)
   vnames<- ls(envir = parent.frame())
   
-  #Filter out undesired vars
-  if(!is.null(vars)) { 
+  if(!is.null(keep) & !is.null(exclude)) stop("Can only use one of 'vars' and 'exclude'")
+  
+  #' Keep vars
+  if(!is.null(keep)) { 
     for(v in vnames){
-      if(v %in% vars==FALSE) 
+      if(v %in% keep==FALSE) 
+        vnames<- vnames[-which(vnames == v)]
+    }
+  }
+  
+  # Exclude  undesired vars
+  if(!is.null(exclude)) { 
+    for(v in vnames){
+      if(v %in% exclude==TRUE) 
         vnames<- vnames[-which(vnames == v)]
     }
   }
