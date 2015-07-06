@@ -17,11 +17,19 @@ Gathers all variables in the current environment an makes a list of them. Often 
 in conjunction with \code{\link{unpackVars}} to pass arguments back and forth.
 }
 \examples{
-x <- 5
+x <- data.frame(x=rep(5,5))
 y <- 10
 
 temp<- gatherVars()
 temp
+
+tryThis<- function(){
+  a<- data.frame(x=c(1,2,3))
+  b<- 2
+  temp<- gatherVars()
+  return(temp)
+}
+tryThis()
 }
 \author{
 Daniel Egan

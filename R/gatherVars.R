@@ -6,20 +6,24 @@
 #' @return A list containing all the data. 
 #' @export
 #' @examples
-#' x <- 5
+#' x <- data.frame(x=rep(5,5))
 #' y <- 10
 #' 
 #' temp<- gatherVars()
 #' temp
+#' 
+#' tryThis<- function(){
+#'   a<- data.frame(x=c(1,2,3))
+#'   b<- 2
+#'   temp<- gatherVars()
+#'   return(temp)
+#' }
+#' tryThis()
 
 gatherVars<- function(vars=NULL){
   #print(ls())
   #require(ULF)
-  vnames<- ls(pos = 1)
-  for(v in vnames){
-    if(class(get(v))=='function' ) 
-      vnames<- vnames[-which(vnames == v)]
-  }
+  vnames<- ls(envir = parent.frame())
   
   #Filter out undesired vars
   if(!is.null(vars)) { 
@@ -29,7 +33,16 @@ gatherVars<- function(vars=NULL){
     }
   }
   
-  allTheThings <- lapply(vnames, function(x) get(x, pos = 1))
+  allTheThings <- list()
+  
+  for(v in vnames) {
+    thisThing<- get(v, envir = parent.frame())
+    allTheThings<- append(allTheThings, list(thisThing))
+
+  }
+  
+  
+  #allTheThings<- lapply(vnames, function(x) get(x, envir = parent.frame()))
   names(allTheThings)<- vnames
   
   return(allTheThings)
