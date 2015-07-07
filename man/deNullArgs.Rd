@@ -4,7 +4,10 @@
 \alias{deNullArgs}
 \title{de-Null the arguments to a parent function.}
 \usage{
-deNullArgs()
+deNullArgs(exclude = NULL)
+}
+\arguments{
+\item{exclude}{A set of variables you want to keep \code{NULL}.}
 }
 \value{
 Nothing, modifies parent environment
@@ -14,12 +17,14 @@ This function looks at the parent or calling function, and checks if any argumen
 defaults are currently null. If they are, it replaces the NULL with the default.
 }
 \examples{
-checkFun<- function(x=5){
-deNullArgs()
-print(x)
+checkFun<- function(x=data.frame(x=5)){
+ deNullArgs()
+ print(x)
 }
 
+checkFun()
 checkFun(x=NULL)
+checkFun(x=10)
 }
 \author{
 Daniel Egan
