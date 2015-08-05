@@ -1,5 +1,4 @@
 #' @title Make a named vector easily
-#' @param ddata A vector of data you want to be 
 #' @author Daniel Egan
 #' @param vdata The values to be named
 #' @param dnames The names to be given to the values.

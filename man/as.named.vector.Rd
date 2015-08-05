@@ -10,8 +10,6 @@ as.named.vector(vdata, dnames)
 \item{vdata}{The values to be named}
 
 \item{dnames}{The names to be given to the values.}
-
-\item{ddata}{A vector of data you want to be}
 }
 \value{
 A named vector.
