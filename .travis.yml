@@ -6,4 +6,6 @@ r_binary_packages:
  - yaml
  - xts
  - zoo
+ - Hmisc
+ 
  
