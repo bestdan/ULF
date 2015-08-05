@@ -1,5 +1,7 @@
 ULF
 ===
+![Travis CI ](https://travis-ci.org/bestdan/ULF.svg?branch=master)
+
 
 "Useful little functions" in R
 
