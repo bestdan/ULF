@@ -31,7 +31,7 @@ test_that("Environment encapsulation works", {
   
   temp<- gatherVars()
   adder<- function(stuff){
-    unpackVars(stuff, varlist=c('x', 'y'))
+    unpackVars(stuff, keep=c('x', 'y'))
     if(!exists('z', inherits=FALSE )) z<- 100
     #' this shows that Z was not unpacked. 
     x+y+z
