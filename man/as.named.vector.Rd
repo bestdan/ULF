@@ -7,11 +7,9 @@
 as.named.vector(vdata, dnames)
 }
 \arguments{
+\item{vdata}{The values to be named}
+
 \item{dnames}{The names to be given to the values.}
-
-\item{ddata}{A vector of data you want to be}
-
-\item{ddata}{The values to be named}
 }
 \value{
 A named vector.

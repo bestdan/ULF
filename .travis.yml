@@ -1,0 +1,11 @@
+language: r
+sudo: required
+warnings_are_errors: true
+r_binary_packages:
+ - testthat
+ - yaml
+ - xts
+ - zoo
+ - Hmisc
+ 
+ 
