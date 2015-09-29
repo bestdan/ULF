@@ -1,8 +1,8 @@
 Package: ULF
 Type: Package
 Title: Useful Little Functions
-Version: 3.0
-Date: 2015-01-10
+Version: 3.0.1.9000
+Date: 2015-09-28
 Author: Daniel P. Egan <dp.egan@gmail.com>
 Maintainer: Daniel P. Egan <dp.egan@gmail.com>
 Description: A set of convenience functions for doing analysis & data

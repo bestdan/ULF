@@ -16,6 +16,7 @@
 #' llist(a,b,0)
 
 nlist<- function (..., labels = TRUE) {
+  label<- Hmisc::label
   dotlist <- list(...)
   lname <- names(dotlist)
   name <- vname <- as.character(sys.call())[-1]
