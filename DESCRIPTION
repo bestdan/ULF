@@ -8,7 +8,7 @@ Maintainer: Daniel P. Egan <dp.egan@gmail.com>
 Description: A set of convenience functions for doing analysis & data
     management in R.
 License: GPL
-Depends:
+Imports:
     xts,
     yaml,
     Hmisc,

@@ -22,7 +22,6 @@ a <- 1:3
 b <- 4:6
 nlist(a,b)
 nlist(a,b,d=0)
-llist(a,b,0)
 }
 \author{
 Daniel Egan
