@@ -2,10 +2,10 @@ language: R
 sudo: false
 cache: packages
 warnings_are_errors: true
-before_install:
- - pip install codecov
+ 
+r_github_packages:
+ - jimhester/covr
+
 after_success:
- - codecov
-  
- 
- 
+ - Rscript -e 'covr::codecov()'
+ - Rscript -e 'covr::coveralls()'
