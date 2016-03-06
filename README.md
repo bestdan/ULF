@@ -1,6 +1,8 @@
 ULF
 ===
 ![Travis CI ](https://travis-ci.org/bestdan/ULF.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/bestdan/ULF/badge.svg?branch=master)](https://coveralls.io/github/bestdan/ULF?branch=master)
+[![codecov.io](https://codecov.io/github/bestdan/ULF/coverage.svg?branch=master)](https://codecov.io/github/bestdan/ULF?branch=master)
 
 
 "Useful little functions" in R
