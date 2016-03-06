@@ -1,16 +1,11 @@
-language: r
-sudo: required
+language: R
+sudo: false
+cache:packages
 warnings_are_errors: true
-r_binary_packages:
- - testthat
- - yaml
- - xts
- - zoo
- - Hmisc
- before_install:
-  - pip install codecov
+before_install:
+ - pip install codecov
 after_success:
-  - codecov
+ - codecov
   
  
  
