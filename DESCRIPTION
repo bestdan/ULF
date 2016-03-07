@@ -1,7 +1,7 @@
 Package: ULF
 Type: Package
 Title: Useful Little Functions
-Version: 3.0
+Version: 3.1
 Date: 2015-01-10
 Author: Daniel P. Egan <dp.egan@gmail.com>
 Maintainer: Daniel P. Egan <dp.egan@gmail.com>
@@ -13,5 +13,6 @@ Depends:
     yaml,
     Hmisc,
     zoo
-Suggests: 
+Suggests:
     testthat
+RoxygenNote: 5.0.1
